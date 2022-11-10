@@ -1391,6 +1391,10 @@ table.dataTable thead > tr > td.sorting {
 	display: inline-block;
 	line-height: 60px;
 }
+#headerLogo{
+	height: 40px;
+    width: 150px;
+}
 .bar-icon {
     display: inline-block;
     width: 21px;
@@ -2000,10 +2004,10 @@ table.dataTable thead > tr > td.sorting {
     margin-bottom: 0;
 }
 .account-footer a {
-	color: #ff9b44;
+	color: #0d6efd;
 }
 .account-footer a:hover {
-	color: #ff9b44;
+	color: #0d6efd;
 }
 
 /*-----------------

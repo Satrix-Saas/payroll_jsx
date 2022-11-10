@@ -20,13 +20,7 @@ import {headerlogo,lnEnglish,lnFrench,lnSpanish,lnGerman, Avatar_02,Avatar_03,Av
     
       return (
          <div className="header" style={{right:"0px"}}>
-        {/* Logo */}
-        <div className="header-left">
-          <Link to="/app/main/dashboard" className="logo">
-            <img src={headerlogo} width={40} height={40} alt="" />
-          </Link>
-        </div>
-        {/* /Logo */}
+     
         <a id="toggle_btn" href="#"  style={{display: pathname.includes('tasks') ?"none" :pathname.includes('compose') ? "none" :""}}onClick={handlesidebar}>
           <span className="bar-icon"><span />
             <span />
@@ -34,8 +28,10 @@ import {headerlogo,lnEnglish,lnFrench,lnSpanish,lnGerman, Avatar_02,Avatar_03,Av
           </span>
         </a>
         {/* Header Title */}
-        <div className="page-title-box">
-          <h3>Dreamguy's Technologies</h3>
+        <div className="header-left">
+           <Link to="/app/main/dashboard" className="logo">
+            <img src={headerlogo} width={120} height={35} alt="" />
+          </Link>
         </div>
         {/* /Header Title */}
         <a id="mobile_btn" className="mobile_btn" href="#" onClick={() => onMenuClik()}><i className="fa fa-bars" /></a>

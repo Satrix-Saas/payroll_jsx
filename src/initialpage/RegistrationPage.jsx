@@ -2,7 +2,6 @@
  * Signin Firebase
  */
 
-
 import React, { useEffect, useState } from 'react';
 import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
@@ -284,5 +283,6 @@ const Registrationpage = (props) => {
 
 
 export default Registrationpage;
+
 
 
