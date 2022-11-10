@@ -9,13 +9,38 @@ import { Applogo } from '../Entryfile/imagepath.jsx'
 import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
-import { alphaNumericPattern, emailrgx } from '../constant'
+import { alphaNumericPattern, emailrgx, fullnameregx, numberregx } from '../constant'
 import { Api } from './Api/Api.js';
 import Message from '../_components/modelbox/Message.jsx';
 
 
 const schema = yup
   .object({
+
+    fullname: yup
+      .string()
+      .matches(fullnameregx, 'Full Name is required')
+      .required('Full Name is required')
+      .trim(),
+
+    org_name: yup
+      .string()
+      .required('Oragnisation Name is required')
+      .trim(),
+
+    phonenum: yup
+      .string()
+      .matches(numberregx, 'Phone Number is incorrect')
+      .required('Phone Number  is required')
+      .trim(),
+
+    num_emp: yup
+      .string()
+      .required('Number Of Employees is required'),
+
+    title: yup
+      .string()
+      .required('Title is required'),
 
     email: yup
       .string()
@@ -26,7 +51,7 @@ const schema = yup
       .max(6).required('Password is required')
       .trim(),
 
-    
+
   })
   .required()
 
@@ -43,9 +68,14 @@ const Registrationpage = (props) => {
   const [passworderror, setPasswordError] = useState("");
   const [formgroup, setFormGroup] = useState("");
   const [inputValues, setInputValues] = useState({
+    fullname: "",
+    org_name: "",
+    phonenum:"",
     email: "",
     password: "",
-    repeatPassword: "",
+    num_emp:"",
+    title:"",
+
   });
 
   const {
@@ -60,58 +90,50 @@ const Registrationpage = (props) => {
   const onSubmit = (data) => {
     // console.log("data", data)
 
-    if (data.repeatPassword != data.password) {
-      setError('repeatPassword', {
-        message: 'confirm password is mismatch',
-      })
-    } else {
-      clearErrors('repeatPassword')
-      var arr = [];
+    // if (data.fullname == "" || data.org_name=="" || data.phonenum == "" ||  data.num_emp == "" ||  data.title == "" ||  data.password == "" || data.email == ""  ) {
+    //   setError('', {
+    //     message: 'confirm password is mismatch',
+    //   })
+    // } else {
+    clearErrors()
+    var arr = [];
 
-      arr['email'] = data.email;
-      arr['password'] = data.password;
-      // arr['repeatpassword'] = data.repeatPassword;
-      // arr['username'] = "satrix"
-      // arr['org_name'] = "satrix"
-      // arr['org_size'] = "15-500"
-      // arr['contact'] = "1236547890"
-      // arr['emp_type'] = "Employee"
+    arr['email'] = data.email;
+    arr['password'] = data.password;
+    arr['username'] = data.fullname;
+    arr['org_name'] = data.org_name;
+    arr['org_size'] = data.num_emp;
+    arr['contact'] = data.phonenum;
+    arr['emp_type'] = data.title;
 
-      //  var response =  Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
+    Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
 
-      var res = 1
-      var html = '<div id="form" className="modal custom-modal fade" role="dialog">' +
-        '<div className="modal-dialog modal-dialog-centered">' +
-        '<div className="modal-content">' +
-        '<div className="modal-header">' +
-        '<button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">' +
-        '<span aria-hidden="true">×</span>' +
-        '</button>' + '</div>' +
-        '<div className="modal-body">' +
-        '<h3>Response</h3>' +
-        '<div className="submit-section">' +
-        '<button data-bs-dismiss="modal" className="btn btn-primary cancel-btn">Cancel</button>' +
-        '</div>' + '</div>' + '</div>' + '</div>' + '</div>'
-      if (res) {
-        alert(html)
-      } else {
-        <Message bgcolor="modal-body bg-success" message="Registeration Unsuccessful" />
-      }
-      // console.log(arr);
-      // props.history.push('login')
-    }
+    // var res = 1
+    // var html = '<div id="form" className="modal custom-modal fade" role="dialog">' +
+    //   '<div className="modal-dialog modal-dialog-centered">' +
+    //   '<div className="modal-content">' +
+    //   '<div className="modal-header">' +
+    //   '<button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">' +
+    //   '<span aria-hidden="true">×</span>' +
+    //   '</button>' + '</div>' +
+    //   '<div className="modal-body">' +
+    //   '<h3>Response</h3>' +
+    //   '<div className="submit-section">' +
+    //   '<button data-bs-dismiss="modal" className="btn btn-primary cancel-btn">Cancel</button>' +
+    //   '</div>' + '</div>' + '</div>' + '</div>' + '</div>'
+    // if (res) {
+    //   alert(html)
+    // } else {
+    //   <Message bgcolor="modal-body bg-success" message="Registeration Unsuccessful" />
+    // }
+    console.log(arr);
+
   }
 
   const onEyeClick = () => {
     seteye(!eye)
   }
-  const onUserLogin = e => {
-    e.preventDefault();
-
-    if (this.state.email !== '' && this.state.password !== '') {
-      this.props.signinUserInFirebase(this.state, this.props.history);
-    }
-  }
+  
 
   const onApplyJob = e => {
     e.preventDefault();
@@ -211,12 +233,12 @@ const Registrationpage = (props) => {
                       control={control}
                       render={({ field: { value, onChange } }) => (
                         <select className={`form-control form-select  ${errors?.num_emp ? "error-input" : ""}`} type="text" value={value} onChange={onChange} >
-                          <option>--Select--</option>
-                          <option>1-20</option>
-                          <option>21-50</option>
-                          <option>51-100</option>
-                          <option>More than 100</option>
-                          </select>
+                          <option value="">--Select--</option>
+                          <option value="1-20" >1-20</option>
+                          <option value="21-50" >21-50</option>
+                          <option value="51-100" >51-100</option>
+                          <option value="More than 100" >More than 100</option>
+                        </select>
                       )}
                     />
                     <small>{errors?.num_emp?.message}</small>
@@ -229,14 +251,14 @@ const Registrationpage = (props) => {
                       control={control}
                       render={({ field: { value, onChange } }) => (
                         <select className={`form-control form-select  ${errors?.title ? "error-input" : ""}`} type="text" value={value} onChange={onChange} >
-                          <option>--Select--</option>
-                          <option>Founder/CEO</option>
-                          <option>Finance/HR Manager</option>
-                          <option>Employee</option>
-                          </select>
+                          <option value="">--Select--</option>
+                          <option value="Founder/CEO">Founder/CEO</option>
+                          <option value="Finance/HR Manager">Finance/HR Manager</option>
+                          <option value="Employee">Employee</option>
+                        </select>
                       )}
-                      />
-                      <small>{errors?.title?.message}</small>
+                    />
+                    <small>{errors?.title?.message}</small>
                   </div>
 
                   <div className="form-group text-center">
