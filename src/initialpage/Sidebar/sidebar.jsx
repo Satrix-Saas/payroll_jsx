@@ -290,6 +290,7 @@ const toggleLevelThree = (value) => {
                   <li><Link to = "/login"> Login </Link></li>
                   <li><Link to = "/register"> Register </Link></li>
                   <li><Link to = "/forgotpassword"> Forgot Password </Link></li>
+                  <li><Link to = "/resetpassword"> Reset Password </Link></li>
                   <li><Link to = "/otp"> OTP </Link></li>
                   <li><Link to = "/lockscreen"> Lock Screen </Link></li>
                 </ul>
