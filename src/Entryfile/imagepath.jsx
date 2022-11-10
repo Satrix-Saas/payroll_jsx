@@ -5,7 +5,7 @@
 
 // export default imagepaths
 export {default as Applogo} from 'Assets/img/satrixlogo.png';
-export {default as headerlogo} from 'Assets/img/logo.png';
+export {default as headerlogo} from 'Assets/img/satrixlogo.png';
 export {default as logo3} from 'Assets/img/logo3.png';
 export {default as lnEnglish} from 'Assets/img/flags/us.png';
 export {default as lnFrench} from 'Assets/img/flags/fr.png';
