@@ -8,9 +8,9 @@ import {itemRender,onShowSizeChange} from "../../paginationfunction"
 import "../../antdstyle.css"
 import { Avatar_02,Avatar_05,Avatar_11, Avatar_12,Avatar_09,Avatar_10, Avatar_13 } from "../../../Entryfile/imagepath"
 import  Editemployee from "../../../_components/modelbox/Editemployee"
-import  Addemployee from "../../../_components/modelbox/Addemployee"
 import Header from '../../../initialpage/Sidebar/header'
 import Sidebar from '../../../initialpage/Sidebar/sidebar'
+import EmployeeOnboarding from '../../../Custompages/Employeeonboarding';
 
 const Employeeslist = () => {
 
@@ -185,7 +185,8 @@ const Employeeslist = () => {
          </div>
          {/* /Page Content */}
          {/* Add Employee Modal */}
-        <Addemployee/>
+      
+        <EmployeeOnboarding/>
          {/* /Add Employee Modal */}
          {/* Edit Employee Modal */}
          <Editemployee/>
