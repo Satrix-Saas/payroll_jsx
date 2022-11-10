@@ -10,7 +10,7 @@ import { useForm, Controller } from 'react-hook-form'
 import { yupResolver } from '@hookform/resolvers/yup'
 import * as yup from 'yup';
 import { alphaNumericPattern, emailrgx } from '../constant'
-
+import { Api } from './Api/Api.js';
 
 const schema = yup
   .object({
@@ -48,17 +48,22 @@ const Loginpage = (props) => {
   })
 
   const onSubmit = (data) => {
-    console.log("data", data)
 
-    if (data.password != "123456") {
-      setError('password', {
-        message: 'password is mismatch',
-      })
-    } else {
-      clearErrors('password')
-      props.history.push('/app/main/dashboard')
-    }
+    // if (data.password == "") {
+    //   setError('password', {
+    //     message: 'password is required',
+    //   })
+    // } else {
+    clearErrors('password')
+    var arr = [];
+    arr['email'] = data.email;
+    arr['password'] = data.password;
+
+    Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
+
+    props.history.push('/app/main/dashboard')
   }
+
 
   const onEyeClick = () => {
     seteye(!eye)
@@ -95,7 +100,7 @@ const Loginpage = (props) => {
                         <input className={`form-control  ${errors?.email ? "error-input" : ""}`} type="text" value={value} onChange={onChange} autoComplete="false" />
 
                       )}
-                      
+
                     />
                     <small>{errors?.email?.message}</small>
                   </div>
@@ -119,7 +124,7 @@ const Loginpage = (props) => {
                           <span onClick={onEyeClick} className={`fa toggle-password" ${eye ? "fa-eye-slash" : "fa-eye"}`} />
                         </div>
                       )}
-                     
+
                     />
                     <small>{errors?.password?.message}</small>
                   </div>
