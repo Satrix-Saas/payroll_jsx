@@ -70,11 +70,11 @@ const Registrationpage = (props) => {
   const [inputValues, setInputValues] = useState({
     fullname: "",
     org_name: "",
-    phonenum:"",
+    phonenum: "",
     email: "",
     password: "",
-    num_emp:"",
-    title:"",
+    num_emp: "",
+    title: "",
 
   });
 
@@ -133,7 +133,7 @@ const Registrationpage = (props) => {
   const onEyeClick = () => {
     seteye(!eye)
   }
-  
+
 
   const onApplyJob = e => {
     e.preventDefault();
@@ -153,13 +153,14 @@ const Registrationpage = (props) => {
       <div className="account-content">
         <Link to="/applyjob/joblist" className="btn btn-primary apply-btn">Apply Job</Link>
         <div className="container">
-          {/* Account Logo */}
-          <div className="account-logo">
-            <Link to="/app/main/dashboard"><img src={Applogo} alt="Dreamguy's Technologies" /></Link>
-          </div>
-          {/* /Account Logo */}
+
           <div className="account-box">
             <div className="account-wrapper">
+              {/* Account Logo */}
+              <div className="account-logo">
+                <Link to="/app/main/dashboard"><img src={Applogo} alt="Dreamguy's Technologies" /></Link>
+              </div>
+              {/* /Account Logo */}
               <h3 className="account-title">Register</h3>
               <p className="account-subtitle">Access to our dashboard</p>
               {/* Account Form */}

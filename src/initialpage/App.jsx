@@ -22,6 +22,8 @@ import Error404 from '../MainPage/Pages/ErrorPage/error404';
 import Error500 from '../MainPage/Pages/ErrorPage/error500';
 
 import Admindashboard from '../MainPage/Main/Dashboard/admindashboard';
+import BasicDetails from '../Custompages/BasicDetails';
+import Companydetails from '../Custompages/Companydetails';
 
 // import 'Assets/css/font-awesome.min.css';
 
@@ -78,6 +80,10 @@ export default class App extends Component {
                     /> */}
                     {/* <Redirect exact from={`${match.url}/`} to={`${match.url}/login`} /> */}
                     <Route path="/app/main/dashboard" component={Admindashboard} />
+                    <Route path="/basicdetails" component={BasicDetails} />
+                    <Route path="/companydetails" component={Companydetails} />
+
+
                     <Route path="/login" component={LoginPage} />
                     <Route path="/forgotpassword" component={ForgotPassword} />
                     <Route path="/register" component={RegistrationPage} />
