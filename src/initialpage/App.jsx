@@ -8,6 +8,7 @@ import ForgotPassword from './forgotpassword'
 import OTP from './otp'
 import LockScreen from './lockscreen'
 import ApplyJobs from './ApplyJob';
+import ResetPassword from './ResetPassword'
 
 //Main App
 import DefaultLayout from './Sidebar/DefaultLayout';
@@ -90,6 +91,7 @@ export default class App extends Component {
                     <Route path="/otp" component={OTP} />
                     <Route path="/lockscreen" component={LockScreen} />
                     <Route path="/applyjob" component={ApplyJobs} />
+                    <Route path="/resetpassword" component={ResetPassword} />
 
                     <Route path="/app" component={DefaultLayout} />
                     <Route path="/settings" component={Settinglayout} />
