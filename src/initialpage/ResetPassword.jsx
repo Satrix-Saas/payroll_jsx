@@ -14,11 +14,7 @@
  const schema = yup
    .object({
  
-     email: yup
-       .string()
-       .matches(emailrgx, 'Email is required')
-       .required('Email is required')
-       .trim(),
+    
      password: yup.string().min(6)
        .max(6).required('Password is required')
        .trim(),
@@ -27,9 +23,9 @@
    })
    .required()
  
- const Registrationpage = (props) => {
+ const ResetPassword = (props) => {
    /**
-    * On User Login  
+    * On User Login
     */
    const [eye, seteye] = useState(true);
    const [emailerror, setEmailError] = useState("");
@@ -37,7 +33,7 @@
    const [passworderror, setPasswordError] = useState("");
    const [formgroup, setFormGroup] = useState("");
    const [inputValues, setInputValues] = useState({
-     email: "",
+  
      password: "",
      repeatPassword: "",
    });
@@ -62,7 +58,6 @@
      } else {
        clearErrors('repeatPassword')
        var arr = [];
-       arr['email'] = data.email;
        arr['password'] = data.password;
        arr['repeatpassword'] = data.repeatPassword;
  
@@ -82,7 +77,7 @@
            "X-Requested-With": "XMLHttpRequest"
          },
          data: { 'data': JSON.stringify(data) },
-         ResponseCode: function (result) {
+         success: function (result) {
            var response = result.response;
            if (response.ResponseCode) {
              alert(response.ResponseMessage);
@@ -127,36 +122,21 @@
          <meta name="description" content="Login page" />
        </Helmet>
        <div className="account-content">
-         
-         <div className="container col-xs">
-          <div className="mair-wrapper">
-        
+         <div className="container">         
            <div className="account-box">
-              
+             {/* Account Logo */}
+         
+           {/* /Account Logo */}
              <div className="account-wrapper">
-               {/* Account Logo */}
-           <div className="account-logo">
+             <div className="account-logo">
              <Link to="/app/main/dashboard"><img src={Applogo} alt="Dreamguy's Technologies" /></Link>
            </div>
-           {/* /Account Logo */}
-               <h3 className="account-title">Register</h3>
+               <h3 className="account-title">Reset Password</h3>
                <p className="account-subtitle">Access to our dashboard</p>
                {/* Account Form */}
                <div>
                  <form onSubmit={handleSubmit(onSubmit)}>
-                   <div className="form-group">
-                     <label>Email</label>
-                     <Controller
-                       name="email"
-                       control={control}
-                       render={({ field: { value, onChange } }) => (
-                         <input className={`form-control  ${errors?.email ? "error-input" : ""}`} type="text" value={value} onChange={onChange} autoComplete="false" />
- 
-                       )}
- 
-                     />
-                     <small>{errors?.email?.message}</small>
-                   </div>
+                 
                    <div className="form-group">
                      <label>Password</label>
                      <Controller
@@ -168,7 +148,6 @@
                            <span onClick={onEyeClick} className={`fa toggle-password" ${eye ? "fa-eye-slash" : "fa-eye"}`} />
                          </div>
                        )}
- 
                      />
  
                      <small>{errors?.password?.message}</small>
@@ -181,7 +160,7 @@
                        render={({ field: { value, onChange } }) => (
                          <input className={`form-control  ${errors?.repeatPassword ? "error-input" : ""}`} type="text" value={value} onChange={onChange} autoComplete="false" />
                        )}
- 
+   
                      />
                      <small>{errors?.repeatPassword?.message}</small>
                    </div>
@@ -197,7 +176,6 @@
              </div>
            </div>
          </div>
-         </div>
        </div>
      </>
    );
@@ -205,5 +183,5 @@
  
  
  
- export default Registrationpage;
+ export default ResetPassword;
  
