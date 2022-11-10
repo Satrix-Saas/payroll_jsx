@@ -9,6 +9,7 @@
  import { useForm, Controller } from 'react-hook-form'
  import { yupResolver } from '@hookform/resolvers/yup'
  import * as yup from 'yup';
+ import { Api } from './Api/Api.js';
  import { alphaNumericPattern, emailrgx } from '../constant'
  
  const schema = yup
@@ -58,45 +59,15 @@
      } else {
        clearErrors('repeatPassword')
        var arr = [];
-       arr['password'] = data.password;
-       arr['repeatpassword'] = data.repeatPassword;
- 
-       // console.log(arr);
-       alert("called");
-       var data = Object.assign({}, arr)
-       console.log(data);
-       $.ajax({
-         type: 'POST',
-         dataType: 'json',
-         url: "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index",
-         headers: {
-           'Access-Control-Allow-Origin': '*',
-           'Access-Control-Allow-Headers': 'Content-Type, X-Auth-Token, Authorization, Origin',
-           'token': 'assss',
-           "Access-Control-Allow-Methods": ["POST", "GET", "OPTIONS", "DELETE", "PUT"],
-           "X-Requested-With": "XMLHttpRequest"
-         },
-         data: { 'data': JSON.stringify(data) },
-         success: function (result) {
-           var response = result.response;
-           if (response.ResponseCode) {
-             alert(response.ResponseMessage);
-           } else {
-             alert(response.ResponseMessage);
-           }
-         },
-         error: function (result) {
-           alert("error");
-           console.log(result);
-         }
-       });
+       arr['email'] = 'test2@gmail.com';
+       arr['new_password'] = data.password;
+       arr['confirm_password'] = data.repeatPassword;
+       Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/login/reset/password");
        // props.history.push('login')
      }
    }
  
-   const onEyeClick = () => {
-     seteye(!eye)
-   }
+   
    const onUserLogin = e => {
      e.preventDefault();
  
@@ -143,10 +114,7 @@
                        name="password"
                        control={control}
                        render={({ field: { value, onChange } }) => (
-                         <div className="pass-group">
-                           <input type={eye ? "password" : "text"} className={`form-control  ${errors?.password ? "error-input" : ""}`} value={value} onChange={onChange} autoComplete="false" />
-                           <span onClick={onEyeClick} className={`fa toggle-password" ${eye ? "fa-eye-slash" : "fa-eye"}`} />
-                         </div>
+                        <input className={`form-control  ${errors?.password ? "error-input" : ""}`} type="text" value={value} onChange={onChange} autoComplete="false" />
                        )}
                      />
  
