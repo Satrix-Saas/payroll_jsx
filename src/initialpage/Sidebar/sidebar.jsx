@@ -128,10 +128,10 @@ const toggleLevelThree = (value) => {
               <li className={pathname.includes('tickets') ?"active" : pathname.includes('ticket-view') ?"active" : ""}> 
                 <Link to = "/app/employees/tickets"><i className="la la-ticket" /> <span>Tickets</span></Link>
               </li>
-              <li className="menu-title"> 
+              {/* <li className="menu-title"> 
                 <span>HR</span>
-              </li>
-              <li className="submenu">
+              </li> */}
+              {/* <li className="submenu">
                 <a href="#" className={isSideMenu == "sales" ? "subdrop" : ""} onClick={()=> toggleSidebar(isSideMenu =="sales" ? "": "sales")}><i className="la la-files-o" /> <span> Sales </span> <span className="menu-arrow" /></a>
                 { isSideMenu == "sales" ? 
                 <ul>
@@ -272,7 +272,7 @@ const toggleLevelThree = (value) => {
               </li>
               <li className="menu-title"> 
                 <span>Pages</span>
-              </li>
+              </li> */}
               <li className="submenu">
                 <a href="#" className={isSideMenu == "profile" ? "subdrop" : ""} onClick={()=> toggleSidebar(isSideMenu =="profile" ? "": "profile")}><i className="la la-user" /> <span> Profile </span> <span className="menu-arrow" /></a>
                 { isSideMenu == "profile" ? 
@@ -321,7 +321,7 @@ const toggleLevelThree = (value) => {
                  :"" 
                 }
               </li>
-              <li className="submenu">
+              {/* <li className="submenu">
                 <a href="#" className={isSideMenu == "pages" ? "subdrop" : ""} onClick={()=> toggleSidebar(isSideMenu =="pages" ? "": "pages")}><i className="la la-columns" /> <span> Pages </span> <span className="menu-arrow" /></a>
                 { isSideMenu == "pages" ?
                 <ul>
@@ -359,8 +359,8 @@ const toggleLevelThree = (value) => {
                 </ul>
                  :"" 
                 }
-              </li>
-              <li className="submenu">
+              </li> */}
+              {/* <li className="submenu">
                 <Link to = "/app/ui-interface/tables/basic" className={isSideMenu == "tables" ? "subdrop" : ""} onClick={()=> toggleSidebar(isSideMenu =="tables" ? "": "tables")}><i className="la la-table" /> <span> Tables </span> <span className="menu-arrow" /></Link>
                 { isSideMenu == "tables" ?
                 <ul>
@@ -409,8 +409,8 @@ const toggleLevelThree = (value) => {
                 </ul>
                 :"" 
               }
-              </li>
-            </ul>
+              </li>*/}
+            </ul> 
           </div>
         </div>
         </Scrollbars>
