@@ -594,15 +594,15 @@ table.dataTable thead > tr > td.sorting {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-	background-color: #ff851a;
-	border: 1px solid #ff851a;
+	background-color: #cfe2ff;
+	border: 1px solid #cfe2ff;
 }
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show > .btn-primary.dropdown-toggle {
-	background-color: #ff851a;
-	border-color: #ff851a;
-	color: #fff;
+	background-color: #cfe2ff;
+	border-color: #cfe2ff;
+	color: #1f1f1f;
 }
 .btn-primary.active:focus:not(:disabled):not(.disabled), 
 .btn-primary:active:focus:not(:disabled):not(.disabled), 
@@ -610,9 +610,9 @@ table.dataTable thead > tr > td.sorting {
 	box-shadow: unset;
 }
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #ff9b44;
-    border-color: #ff9b44;
-    color: #fff;
+    background-color: #cfe2ff;
+    border-color: #cfe2ff;
+    color: #1f1f1f;
 }
 .btn-success {
 	background-color: #55ce63;
@@ -681,19 +681,19 @@ table.dataTable thead > tr > td.sorting {
 .btn-info.disabled, .btn-info:disabled {
     background-color: #009efb;
     border-color: #009efb;
-    color: #fff;
+    color: #1f1f1f;
 }
 .btn-warning {
-	background: #ffbc34;
-	border: 1px solid #ffbc34
+	background: #cfe2ff;
+	border: 1px solid #cfe2ff
 }
 .btn-warning:hover,
 .btn-warning:focus,
 .btn-warning.active,
 .btn-warning:active,
 .open > .dropdown-toggle.btn-warning {
-	background: #e9ab2e;
-	border: 1px solid #e9ab2e
+	background: #cfe2ff;
+	border: 1px solid #cfe2ff
 }
 .btn-warning.active.focus,
 .btn-warning.active:focus,
@@ -704,8 +704,8 @@ table.dataTable thead > tr > td.sorting {
 .open > .dropdown-toggle.btn-warning.focus,
 .open > .dropdown-toggle.btn-warning:focus,
 .open > .dropdown-toggle.btn-warning:hover {
-	background: #e9ab2e;
-	border: 1px solid #e9ab2e
+	background: #cfe2ff;
+	border: 1px solid #cfe2ff
 }
 .btn-warning.active:focus:not(:disabled):not(.disabled), 
 .btn-warning:active:focus:not(:disabled):not(.disabled), 
@@ -713,9 +713,9 @@ table.dataTable thead > tr > td.sorting {
 	box-shadow: unset;
 }
 .btn-warning.disabled, .btn-warning:disabled {
-    background-color: #ffbc34;
-    border-color: #ffbc34;
-    color: #fff;
+    background-color: #cfe2ff;
+    border-color: #cfe2ff;
+    color: #1f1f1f;
 }
 .btn-danger {
 	background: #f62d51;
@@ -738,8 +738,8 @@ table.dataTable thead > tr > td.sorting {
 .open > .dropdown-toggle.btn-danger.focus,
 .open > .dropdown-toggle.btn-danger:focus,
 .open > .dropdown-toggle.btn-danger:hover {
-	background: #e9ab2e;
-	border: 1px solid #e9ab2e
+	background: #cfe2ff;
+	border: 1px solid #cfe2ff
 }
 .btn-danger.active:focus:not(:disabled):not(.disabled), 
 .btn-danger:active:focus:not(:disabled):not(.disabled), 
@@ -749,7 +749,7 @@ table.dataTable thead > tr > td.sorting {
 .btn-danger.disabled, .btn-danger:disabled {
     background-color: #f62d51;
     border-color: #f62d51;
-    color: #fff;
+    color: #1f1f1f;
 }
 .btn-custom {
 	background: #4b93fd;
