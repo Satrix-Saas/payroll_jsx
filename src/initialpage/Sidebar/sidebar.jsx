@@ -128,6 +128,11 @@ const toggleLevelThree = (value) => {
               <li className={pathname.includes('tickets') ?"active" : pathname.includes('ticket-view') ?"active" : ""}> 
                 <Link to = "/app/employees/tickets"><i className="la la-ticket" /> <span>Tickets</span></Link>
               </li>
+
+              <li className={pathname.includes('documents') ?"active" :""}> 
+                <Link to = "/app/employees/documents"><i className="la la-file" /> <span>Documents</span></Link>
+              </li>
+
               {/* <li className="menu-title"> 
                 <span>HR</span>
               </li> */}
