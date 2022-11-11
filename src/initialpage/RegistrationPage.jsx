@@ -108,24 +108,6 @@ const Registrationpage = (props) => {
 
     Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
 
-    // var res = 1
-    // var html = '<div id="form" className="modal custom-modal fade" role="dialog">' +
-    //   '<div className="modal-dialog modal-dialog-centered">' +
-    //   '<div className="modal-content">' +
-    //   '<div className="modal-header">' +
-    //   '<button type="button" className="close" data-bs-dismiss="modal" aria-label="Close">' +
-    //   '<span aria-hidden="true">×</span>' +
-    //   '</button>' + '</div>' +
-    //   '<div className="modal-body">' +
-    //   '<h3>Response</h3>' +
-    //   '<div className="submit-section">' +
-    //   '<button data-bs-dismiss="modal" className="btn btn-primary cancel-btn">Cancel</button>' +
-    //   '</div>' + '</div>' + '</div>' + '</div>' + '</div>'
-    // if (res) {
-    //   alert(html)
-    // } else {
-    //   <Message bgcolor="modal-body bg-success" message="Registeration Unsuccessful" />
-    // }
     console.log(arr);
 
   }

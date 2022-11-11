@@ -26,6 +26,8 @@ import Admindashboard from '../MainPage/Main/Dashboard/admindashboard';
 import BasicDetails from '../Custompages/BasicDetails';
 import Companydetails from '../Custompages/Companydetails';
 
+
+
 // import 'Assets/css/font-awesome.min.css';
 
 
@@ -102,6 +104,7 @@ export default class App extends Component {
                     <Route path="/ui-components" component={uicomponents} />
                     <Route path="/error-404" component={Error404} />
                     <Route path="/error-500" component={Error500} />
+                   
                 </Switch>
             )
         }
