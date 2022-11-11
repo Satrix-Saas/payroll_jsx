@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
+import EditKycStatus from './PopupForms/componentsPop/EditKycStatus';
 import EditCredentials from './PopupForms/EditCredentials';
 
 const Companydetails = () => {
@@ -101,7 +102,7 @@ const Companydetails = () => {
                                             <div className="leave-header">
                                                 <div className="h3 card-title">KYC</div>
                                                 <div className="leave-action">
-                                                    <button className="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#add_custom_policy"><i className="fa fa-pencil" /> Edit</button>
+                                                <button className="btn btn-sm btn-primary" type="button" data-bs-toggle="modal" data-bs-target="#edit_kycstatus"><i className="fa fa-pencil"></i> Edit</button>
                                                 </div>
                                             </div>
                                             <div className="leave-item">
@@ -246,6 +247,9 @@ const Companydetails = () => {
                     </div>
                     <div id="editcred" className="modal custom-modal fade" role="dialog">
                         <EditCredentials/>
+                    </div>
+                    <div id="edit_kycstatus" className="modal custom-modal fade" role="dialog">
+                        <EditKycStatus/>
                     </div>
                 </div>
             </div >
