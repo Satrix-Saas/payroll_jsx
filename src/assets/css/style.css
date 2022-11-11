@@ -574,16 +574,16 @@ table.dataTable thead > tr > td.sorting {
 	border: 1px solid #482fe9;
 }
 .btn-primary {
-	background-color: #ff9b44;
-	border: 1px solid #ff9b44;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.active,
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
-	background-color: #ff851a;
-	border: 1px solid #ff851a;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -594,14 +594,14 @@ table.dataTable thead > tr > td.sorting {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-	background-color: #ff851a;
-	border: 1px solid #ff851a;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show > .btn-primary.dropdown-toggle {
-	background-color: #ff851a;
-	border-color: #ff851a;
+	background-color: #c2e2ff;
+	border-color: #c2e2ff;
 	color: #fff;
 }
 .btn-primary.active:focus:not(:disabled):not(.disabled), 
@@ -610,8 +610,8 @@ table.dataTable thead > tr > td.sorting {
 	box-shadow: unset;
 }
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #ff9b44;
-    border-color: #ff9b44;
+    background-color: #c2e2ff;
+    border-color: #c2e2ff;
     color: #fff;
 }
 .btn-success {
@@ -1809,8 +1809,7 @@ table.dataTable thead > tr > td.sorting {
 	color: #333;
 }
 .card {
-	border: 1px solid #ededed;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid gray;
 	margin-bottom: 30px;
 }
 .ant-pagination-item-active {
