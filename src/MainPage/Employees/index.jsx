@@ -23,6 +23,7 @@ const EmployeeRoute = ({ match }) => (
       <Route path={`${match.url}/ticket-view`} component={TicketView} />
       <Route path={`${match.url}/documents`} component={Documents} />
       <Route path={`${match.url}/payslip`} component={Payslip} />
+      <Route path={`${match.url}/reimbursement`} component={Payslip} />
    </Switch>
 );
 

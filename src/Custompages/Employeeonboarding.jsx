@@ -1,10 +1,35 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Controller, useForm } from 'react-hook-form';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
 
+
 const EmployeeOnboarding = () => {
+
     const optionArraymanager = dropDownArray(options, "Manager");
     const optionArraylocation = dropDownArray(options, "State");
+
+
+    const [inputValues, setInputValues] = useState({
+        emp_cont: "",
+        description: "",
+        image: "",
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+        var arr = [];
+        arr['document_name'] = data.emp_cont;
+        arr['description'] = data.description;
+        arr['image'] = data.image;
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
+
 
     return (
         <>
@@ -19,13 +44,13 @@ const EmployeeOnboarding = () => {
                             </button>
                         </div>
                         <div className="modal-body">
-                            <form>
+                            <form onSubmit={handleSubmit(onSubmit)}>
                                 {/* Radio Button */}
-                        
+
                                 <p>Is this an employee or a contractor?</p>
                                 <div className=" form-group form-check form-check-inline">
                                     <label htmlFor="employee">
-                                        <input type="radio" name="emp_cont" value="employee" className=" form-check-input" id="employee" />
+                                        <input type="radio" name="emp_cont" value="employee" className="form-check-input" id="contractor" />
                                         Employee
                                     </label>
                                 </div>
