@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
-import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
@@ -8,27 +7,7 @@ import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
 
 
-function Documents() {
-
-    const [inputValues, setInputValues] = useState({
-        upload_doc: "",
-        description: "",
-        image:"",
-    })
-    const onSubmit = (data) => {
-        console.log("data", data)
-        
-        var arr = [];
-        arr['document_name'] = data.upload_doc;
-        arr['description'] = data.description;
-        arr['image'] = data.image;
-      
-    }
-
-    const {
-        handleSubmit,
-        control,
-    } = useForm()
+function Reimbursement() {
     const optionArraydocuments = dropDownArray(options, "Documents");
 
     const [menu, setMenu] = useState(false)
@@ -61,52 +40,38 @@ function Documents() {
                         </div>
                         {/* /Page Header */}
 
-                        <form onSubmit={handleSubmit(onSubmit)}>
+                        <form>
                             <div className="row">
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
                                             <div className="leave-item">
-                                                {/* File Upload */}
+                                                {/* Type */}
                                                 <div className="leave-row">
                                                     <div className="leave-left">
-
                                                         <div className="form-group">
-                                                            <label>Upload new documents</label>
-                                                            <Controller
-                                                                name="upload_doc"
-                                                                control={control}
-                                                                render={({ field: { value, onChange } }) => (
-                                                                    <select className="form-control form-select" type="text" value={value} onChange={onChange} >
-                                                                        <option value="">--</option>
-                                                                        {optionArraydocuments.map((e) => {
-                                                                            return (
-                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                                    {e.optionvalue}
-                                                                                </option>
-                                                                            );
-                                                                        })}
-                                                                    </select>
-                                                                )}
-                                                            />
-
+                                                            <label>Type of reimbursement?</label>
+                                                            <select className='form-control form-select'>
+                                                                <option value="">--</option>
+                                                                {optionArraydocuments.map((e) => {
+                                                                    return (
+                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                            {e.optionvalue}
+                                                                        </option>
+                                                                    );
+                                                                })}
+                                                            </select>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /File Upload */}
+                                                {/* /Type */}
                                                 {/* Description */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Description?</label>
-                                                            <Controller
-                                                                name="description"
-                                                                control={control}
-                                                                render={({ field: { value, onChange } }) => (
-                                                                    <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
-                                                                )}
-                                                            />
+                                                            <input type="text" className="form-control" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -117,21 +82,14 @@ function Documents() {
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Images or documents (maximum 5 MB each)</label>
-                                                            <Controller
-                                                                name="image"
-                                                                control={control}
-                                                                render={({ field: { value, onChange } }) => (
-                                                                    <input className="form-control" type="file" value={value} onChange={onChange} autoComplete="false" />
-                                                                )}
-                                                            />
+                                                            <input type="file" className="form-control"  />
                                                         </div>
                                                     </div>
                                                 </div>
                                                 {/* Image upload */}
                                             </div>
-                                            <div className="form-group text-center">
-                                                <button className="btn btn-primary account-btn" type="submit" >Submit</button>
-
+                                            <div className="submit-section">
+                                                <button className="btn btn-primary submit-btn">Submit</button>
                                             </div>
                                         </div>
                                     </div>
@@ -149,4 +107,4 @@ function Documents() {
     )
 }
 
-export default Documents
+export default Reimbursement
