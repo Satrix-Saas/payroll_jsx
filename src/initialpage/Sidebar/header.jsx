@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import {headerlogo,lnEnglish,lnFrench,lnSpanish,lnGerman, Avatar_02,Avatar_03,Avatar_05,
   Avatar_06,Avatar_08,Avatar_09,Avatar_13,Avatar_17,Avatar_21} from '../../Entryfile/imagepath'
+import Adminheadermenu from '../../MainPage/Pages/Pages/adminheadermenu';
 
   const Header = (props) => {
 
@@ -21,8 +22,8 @@ import {headerlogo,lnEnglish,lnFrench,lnSpanish,lnGerman, Avatar_02,Avatar_03,Av
       return (
          <div className="header" style={{right:"0px"}}>
      
-        <a id="toggle_btn" href="#"  style={{display: pathname.includes('tasks') ?"none" :pathname.includes('compose') ? "none" :""}}onClick={handlesidebar}>
-          <span className="bar-icon"><span />
+        <a className='rounded-circle' id="toggle_btn" href="#"  style={{display: pathname.includes('tasks') ?"none" :pathname.includes('compose') ? "none" :""}}onClick={handlesidebar}>
+          <span className="fa fa-bars"><span />
             <span />
             <span />
           </span>
@@ -32,7 +33,11 @@ import {headerlogo,lnEnglish,lnFrench,lnSpanish,lnGerman, Avatar_02,Avatar_03,Av
            <Link to="/app/main/dashboard" className="logo">
             <img src={headerlogo} width={120} height={35} alt="" />
           </Link>
-        </div>
+         
+        </div>     
+     
+        <Adminheadermenu/>  
+     
         {/* /Header Title */}
         <a id="mobile_btn" className="mobile_btn" href="#" onClick={() => onMenuClik()}><i className="fa fa-bars" /></a>
         {/* Header Menu */}

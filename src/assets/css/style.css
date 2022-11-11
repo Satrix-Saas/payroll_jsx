@@ -134,6 +134,7 @@ Version      : 3.6
 	src: local('Circular Std Black Italic'), url('../fonts/CircularStd-BlackItalic.woff') format('woff');
 }
 
+
 /*-----------------
 	1. General
 -----------------------*/
@@ -303,7 +304,7 @@ span.fa.toggle-password\".fa-eye-slash {
 form small {
     width: 100%;
     margin-top: 0.25rem!important;
-    font-size: unset !important;
+    font-size: .875em;
     color: #f62d51 !important;
     display: inline-block !important;
 }
@@ -514,6 +515,7 @@ table.dataTable thead > tr > td.sorting {
 .bg-primary,
 .badge-primary {
 	background-color: #ff9b44 !important;
+	display: none;
 }
 .bg-success,
 .badge-success {
@@ -1573,11 +1575,11 @@ table.dataTable thead > tr > td.sorting {
 	padding: 0 20px;
 }
 .sidebar-menu li a:hover {
-	background-color: #ffebda;
+	background-color: #d3e3fd;
 }
 .sidebar-menu li.active a {
 	color: #333;
-	background-color: #ffebda;
+	
 }
 .menu-title {
     color: #9e9e9e;
@@ -1606,9 +1608,7 @@ table.dataTable thead > tr > td.sorting {
     padding: 10px 15px;
 }
 .sidebar-menu ul ul a.active {
-	background-color: #ffebda;
 	color: #000;
-	text-decoration: underline;
 }
 .mobile-user-menu {
     color: #fff;
