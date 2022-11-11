@@ -1809,8 +1809,7 @@ table.dataTable thead > tr > td.sorting {
 	color: #333;
 }
 .card {
-	border: 1px solid #ededed;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid gray;
 	margin-bottom: 30px;
 }
 .ant-pagination-item-active {
