@@ -50,7 +50,7 @@ function Payslip() {
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
-                                                            <label>Select financial year</label>
+                                                            <label id="payslip">Select financial year</label>
                                                             <select className='form-control form-select'>
                                                                 <option value="">--Select--</option>
                                                                 {optionArrayfinancial.map((e) => {
