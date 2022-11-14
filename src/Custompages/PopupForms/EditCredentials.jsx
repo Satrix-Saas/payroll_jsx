@@ -31,7 +31,7 @@ function EditCredentials() {
                                 <div className="row">
                                     <div className="col-md-12">
                                         <div className="table-responsive">
-                                            <table className="table mb-0">
+                                            <table className="table table-borderless mb-0">
                                                 <thead><tr>
                                                     <th>State </th>
                                                     <th>Username</th>

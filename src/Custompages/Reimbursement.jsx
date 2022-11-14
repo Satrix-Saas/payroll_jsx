@@ -2,41 +2,13 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
-import { Api } from '../initialpage/Api/Api';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
 
 
-
-function Documents() {
-
-    const [inputValues, setInputValues] = useState({
-        upload_doc: "",
-        description: "",
-        image:"",
-    })
-    const onSubmit = (data) => {
-        console.log("data", data)
-        
-        var arr = [];
-
-        arr['upload_document'] = data.upload_doc;
-        arr['description'] = data.description;
-        var file_name = data.image;
-        file_name = file_name.replace(/^.*[\\\/]/, '');
-        arr['file_image'] = file_name;
-
-        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/document/document");
-        // props.history.push('/app/main/dashboard') 
-
-    }
-
-    const {
-        handleSubmit,
-        control,
-    } = useForm()
+function Reimbursement() {
     const optionArraydocuments = dropDownArray(options, "Documents");
 
     const [menu, setMenu] = useState(false)
@@ -44,6 +16,25 @@ function Documents() {
     const toggleMobileMenu = () => {
         setMenu(!menu)
     }
+    const [inputValues, setInputValues] = useState({
+        document: "",
+        doc_image: "",
+        description: "",
+       
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+        var arr = [];
+        arr['company_name'] = data.com_name;
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
+
 
     return (
         <>
@@ -55,9 +46,9 @@ function Documents() {
                         <title>Documents - HRMS Admin Template</title>
                         <meta name="description" content="Login page" />
                     </Helmet>
-                    {/* {/ Page Content /} */}
+                    {/* Page Content */}
                     <div className="content container-fluid">
-                        {/* {/ Page Header /} */}
+                        {/* Page Header */}
                         <div className="page-header">
                             <div className="col">
                                 <h3 className="page-title">Documents</h3>
@@ -67,26 +58,26 @@ function Documents() {
                                 </ul>
                             </div>
                         </div>
-                        {/* {/ /Page Header /} */}
+                        {/* /Page Header */}
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
+                          
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
                                             <div className="leave-item">
-                                                {/* {/ File Upload /} */}
+                                                {/* Type */}
                                                 <div className="leave-row">
                                                     <div className="leave-left">
-
                                                         <div className="form-group">
-                                                            <label>Upload new documents</label>
+                                                            <label>Type of reimbursement?</label>
                                                             <Controller
-                                                                name="upload_doc"
+                                                                name="document"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
-                                                                    <select className="form-control form-select" type="text" value={value} onChange={onChange} >
-                                                                        <option value="">--</option>
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--Select--</option>
                                                                         {optionArraydocuments.map((e) => {
                                                                             return (
                                                                                 <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
@@ -97,53 +88,52 @@ function Documents() {
                                                                     </select>
                                                                 )}
                                                             />
-
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* {/ /File Upload /} */}
-                                                {/* {/ Description /} */}
+                                                {/* /Type */}
+                                                {/* Description */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Description?</label>
                                                             <Controller
-                                                                name="description"
-                                                                control={control}
-                                                                render={({ field: { value, onChange } }) => (
-                                                                    <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
-                                                                )}
-                                                            />
+                                                name="descrption"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* {/ /Description /} */}
-                                                {/* {/ Image upload /} */}
+                                                {/* /Description */}
+                                                {/* Image upload */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Images or documents (maximum 5 MB each)</label>
                                                             <Controller
-                                                                name="image"
-                                                                control={control}
-                                                                render={({ field: { value, onChange } }) => (
-                                                                    <input className="form-control" type="file" value={value} onChange={onChange} autoComplete="false" />
-                                                                )}
-                                                            />
+                                                name="doc_image"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="file" value={value} onChange={onChange} />
+                                                )} />
+                                                            <input type="file" className="form-control" />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* {/ Image upload /} */}
+                                                {/* Image upload */}
                                             </div>
-                                            <div className="form-group text-center">
-                                                <button className="btn btn-primary account-btn" type="submit" >Submit</button>
-
+                                            <div className="submit-section">
+                                                <button className="btn btn-primary submit-btn">Submit</button>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </form>
                     </div>
@@ -157,4 +147,4 @@ function Documents() {
     )
 }
 
-export default Documents
+export default Reimbursement

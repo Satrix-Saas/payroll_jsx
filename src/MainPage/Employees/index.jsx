@@ -6,6 +6,7 @@ import React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 
 import Documents from '../../Custompages/Documents';
+import Payslip from '../../Custompages/Payslip';
 import Clients from './clients';
 import ClientsList from './clientslist';
 import Leades from './leades';
@@ -21,6 +22,8 @@ const EmployeeRoute = ({ match }) => (
       <Route path={`${match.url}/tickets`} component={Tickets} />
       <Route path={`${match.url}/ticket-view`} component={TicketView} />
       <Route path={`${match.url}/documents`} component={Documents} />
+      <Route path={`${match.url}/payslip`} component={Payslip} />
+      <Route path={`${match.url}/reimbursement`} component={Payslip} />
    </Switch>
 );
 

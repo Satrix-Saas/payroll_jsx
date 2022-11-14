@@ -133,7 +133,7 @@
                      <small>{errors?.repeatPassword?.message}</small>
                    </div>
                    <div className="form-group text-center">
-                     <button className="btn btn-primary account-btn" type="submit">Register</button>
+                     <button className="btn btn-primary account-btn" type="submit">Confirm</button>
                    </div>
                  </form>
                  <div className="account-footer">

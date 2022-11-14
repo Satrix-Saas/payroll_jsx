@@ -303,6 +303,18 @@ const options = {
                  'option' :'Credit the entire amount, and deduct TDS from future payroll',
                  'optionvalue': 'Credit the entire amount, and deduct TDS from future payroll',
              }
+        ],
+        'Financial_year':[
+            {
+               ' name' : 'fin_year',
+                'option' :'2022-2023',
+                'optionvalue': '2022-2023',
+            },
+            {
+                ' name' : 'fin_year',
+                 'option' :'2023-2024',
+                 'optionvalue': '2023-2024',
+             }
         ]
 }
 
