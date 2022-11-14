@@ -1,4 +1,6 @@
 import React from 'react'
+import { Controller } from 'react-hook-form'
+
 
 const KycFileUpload = (props) => {
     return (
@@ -10,7 +12,7 @@ const KycFileUpload = (props) => {
                         <h4>{props.fileproof}</h4>
                         <p>{props.description}</p>
                         <Controller
-                            name={props.name}
+                            name={props.filename}
                             control={props.control}
                             render={({ field: { value, onChange } }) => (
                                 <input className="form-control" type="file" value={value} onChange={onChange} />

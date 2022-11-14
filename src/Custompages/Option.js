@@ -315,6 +315,56 @@ const options = {
                  'option' :'2023-2024',
                  'optionvalue': '2023-2024',
              }
+        ],
+
+        'Org_Type':[
+            {
+               ' name' : 'org_type',
+                'option' :'Private Limited / Public Limited / LLP',
+                'optionvalue': 'Private Limited / Public Limited / LLP',
+            },
+            {
+                ' name' : 'org_type',
+                 'option' :'Sole Proprietorship',
+                 'optionvalue': 'Sole Proprietorship',
+             },
+             {
+                ' name' : 'org_type',
+                 'option' :'Partnership',
+                 'optionvalue': 'Partnership',
+             },
+             {
+                ' name' : 'org_type',
+                 'option' :'Trust / NGO',
+                 'optionvalue': 'Trust / NGO',
+             }
+        ],
+        'Payment':[
+            {
+               ' name' : 'repeat_payment',
+                'option' :'Single Payment',
+                'optionvalue': 'Single Payment',
+            },
+            {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Weekly',
+                 'optionvalue': 'Repeat Weekly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Monthly',
+                 'optionvalue': 'Repeat Monthly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Quarterly',
+                 'optionvalue': 'Repeat Quarterly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Biannually',
+                 'optionvalue': 'Repeat Biannually',
+             }
         ]
 }
 

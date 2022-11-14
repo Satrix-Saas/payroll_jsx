@@ -25,9 +25,8 @@ import Error500 from '../MainPage/Pages/ErrorPage/error500';
 import Admindashboard from '../MainPage/Main/Dashboard/admindashboard';
 import BasicDetails from '../Custompages/BasicDetails';
 import Companydetails from '../Custompages/Companydetails';
-
-
-
+import ContractorReimbrusement from '../Custompages/ContractorReimbrusement';
+import ContractorPayment from "../Custompages/ContractorPayment"
 // import 'Assets/css/font-awesome.min.css';
 
 
@@ -83,6 +82,8 @@ export default class App extends Component {
                     /> */}
                     {/* <Redirect exact from={`${match.url}/`} to={`${match.url}/login`} /> */}
                     <Route path="/app/main/dashboard" component={Admindashboard} />
+                    <Route path="/contractor" component={ContractorReimbrusement} />
+                    <Route path="/contractorpay" component={ContractorPayment} />
                     <Route path="/basicdetails" component={BasicDetails} />
                     <Route path="/companydetails" component={Companydetails} />
 
