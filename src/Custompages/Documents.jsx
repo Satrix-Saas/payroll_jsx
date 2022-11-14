@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
 import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { Api } from '../initialpage/Api/Api';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
+
 
 
 function Documents() {
@@ -19,10 +21,16 @@ function Documents() {
         console.log("data", data)
         
         var arr = [];
-        arr['document_name'] = data.upload_doc;
+
+        arr['upload_document'] = data.upload_doc;
         arr['description'] = data.description;
-        arr['image'] = data.image;
-      
+        var file_name = data.image;
+        file_name = file_name.replace(/^.*[\\\/]/, '');
+        arr['file_image'] = file_name;
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/document/document");
+        // props.history.push('/app/main/dashboard') 
+
     }
 
     const {
@@ -47,9 +55,9 @@ function Documents() {
                         <title>Documents - HRMS Admin Template</title>
                         <meta name="description" content="Login page" />
                     </Helmet>
-                    {/* Page Content */}
+                    {/* {/ Page Content /} */}
                     <div className="content container-fluid">
-                        {/* Page Header */}
+                        {/* {/ Page Header /} */}
                         <div className="page-header">
                             <div className="col">
                                 <h3 className="page-title">Documents</h3>
@@ -59,7 +67,7 @@ function Documents() {
                                 </ul>
                             </div>
                         </div>
-                        {/* /Page Header */}
+                        {/* {/ /Page Header /} */}
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
@@ -67,7 +75,7 @@ function Documents() {
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
                                             <div className="leave-item">
-                                                {/* File Upload */}
+                                                {/* {/ File Upload /} */}
                                                 <div className="leave-row">
                                                     <div className="leave-left">
 
@@ -93,8 +101,8 @@ function Documents() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /File Upload */}
-                                                {/* Description */}
+                                                {/* {/ /File Upload /} */}
+                                                {/* {/ Description /} */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
@@ -110,8 +118,8 @@ function Documents() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /Description */}
-                                                {/* Image upload */}
+                                                {/* {/ /Description /} */}
+                                                {/* {/ Image upload /} */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
@@ -127,7 +135,7 @@ function Documents() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* Image upload */}
+                                                {/* {/ Image upload /} */}
                                             </div>
                                             <div className="form-group text-center">
                                                 <button className="btn btn-primary account-btn" type="submit" >Submit</button>
