@@ -147,7 +147,7 @@
                      <small>{errors?.email?.message}</small>
                    </div>
                      <div className="form-group text-center">
-                       <button className="btn btn-primary account-btn" type="submit">Reset Password</button>
+                       <button className="btn btn-primary account-btn"  type="submit">Reset</button>
                      </div>
                      <div className="account-footer">
                        <p>Remember your password? <Link to="/login">Login</Link></p>

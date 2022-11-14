@@ -1667,6 +1667,7 @@ table.dataTable thead > tr > td.sorting {
 	font-size: 14px;
 	padding: 9px 10px 9px 50px;
 	position: relative;
+	margin-left: 10px;
 }
 .sidebar-menu ul ul ul a {
 	padding-left: 70px;
@@ -3450,13 +3451,13 @@ span#close-task-panel {
 	text-align: center;
 }
 .fc .fc-button-group > .fc-button:focus, .fc .fc-button-group > .fc-button:active, .fc .fc-button-group > .fc-button.fc-button-active {
-    background-color: #ff9b44 !important;
-	color: white !important;
+    background-color: #cfe2ff !important;
+	color: #1f1f1f !important;
     text-transform: capitalize;
 }
 .fc .fc-button-primary:disabled {
-    color: #fff !important;
-	background-color: #ff9b44 !important;
+    color: #1f1f1f !important;
+	background-color: #cfe2ff !important;
     text-transform: capitalize !important;
 }
 .external-event {
@@ -3859,12 +3860,12 @@ span#close-task-panel {
     position: relative;
 }
 .roles-menu > ul > li.active a {
-	border-color: #ff9b44;
-	color: #ff9b44;
+	border-color: #dee2e6;
+	color: #dee2e6;
 }
 .roles-menu > ul > li a:hover {
-    background-color: #eee;
-	border-color: #ff9b44;
+    background-color: #dee2e6;
+	border-color: #dee2e6;
 }
 .role-action {
 	float: right;
