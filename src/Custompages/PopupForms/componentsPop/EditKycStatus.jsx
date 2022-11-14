@@ -1,10 +1,6 @@
 import React, { useState } from 'react'
 import { dropDownArray } from '../../Dropdown/Dropdownutil';
 import options from '../../Option';
-import KycFileUpload from './KycFileUpload';
-
-
-
 
 function EditKycStatus() {
     const optionArrayState = dropDownArray(options, "State");

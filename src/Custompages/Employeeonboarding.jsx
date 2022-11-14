@@ -9,19 +9,22 @@ const EmployeeOnboarding = () => {
     const optionArraymanager = dropDownArray(options, "Manager");
     const optionArraylocation = dropDownArray(options, "State");
 
-
     const [inputValues, setInputValues] = useState({
         emp_cont: "",
-        description: "",
-        image: "",
+        fullname: "",
+        email: "",
+        hiredate: "",
+        title: "",
+        department: "",
+        manager: "",
+        location: "",
+        resident: "",
     })
     const onSubmit = (data) => {
         console.log("data", data)
 
         var arr = [];
         arr['document_name'] = data.emp_cont;
-        arr['description'] = data.description;
-        arr['image'] = data.image;
 
     }
 
@@ -48,82 +51,142 @@ const EmployeeOnboarding = () => {
                                 {/* Radio Button */}
 
                                 <p>Is this an employee or a contractor?</p>
-                                <div className=" form-group form-check form-check-inline">
-                                    <label htmlFor="employee">
-                                        <input type="radio" name="emp_cont" value="employee" className="form-check-input" id="contractor" />
-                                        Employee
-                                    </label>
-                                </div>
-                                <div className="form-check form-check-inline">
-                                    <label htmlFor="contractor">
-                                        <input type="radio" name="emp_cont" value="contractor" className="form-check-input" id="contractor" />
-                                        Contractor
-                                    </label>
-                                </div>
+
+                                <Controller
+                                    name={'emp_cont'}
+                                    control={control}
+                                    render={({ field: { value, onChange } }) => (
+                                        <>
+                                            <div className=" form-group form-check form-check-inline">
+                                                <label htmlFor="employee">
+                                                    <input type="radio" name="emp_cont" value={`employee`} className="form-check-input" onChange={onChange} />
+                                                    Employee
+                                                </label>
+                                            </div>
+                                            <div className=" form-group form-check form-check-inline">
+                                                <label htmlFor="contractor">
+                                                    <input type="radio" name="emp_cont" value={`contractor`} className="form-check-input" onChange={onChange} />
+                                                    Contractor
+                                                </label>
+                                            </div>
+                                        </>
+                                    )} />
                                 {/* /Radio Button */}
 
                                 <div className="form-group">
                                     <label>Full Name <span className="text-danger">*</span></label>
-                                    <input className="form-control" type="text" name="fullname" id="fullname" />
+                                    <Controller
+                                        name="fullname"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                 </div>
 
                                 <div className="form-group">
                                     <label>Email <span className="text-danger">*</span></label>
-                                    <input className="form-control" type="text" name="email" id="email" />
+                                    <Controller
+                                        name="email"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                     <p>The email they will use to log into XPayroll. </p>
                                 </div>
 
                                 <div className="form-group">
                                     <label>Hire Date <span className="text-danger">*</span></label>
-                                    <input className="form-control floating" type="date" name="hiredate" id="hiredate" />
+                                    <Controller
+                                        name="hiredate"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control floating" type="date" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                     <p>The first day of employment for this person.</p>
                                 </div>
 
                                 <div className="form-group">
                                     <label>Title</label>
-                                    <input className="form-control" type="text" name="title" id="title" />
+                                    <Controller
+                                        name="title"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                 </div>
 
                                 <div className="form-group">
                                     <label className="form-label">Department</label>
-                                    <input className="form-control" type="text" name="department" id="department" />
+                                    <Controller
+                                        name="department"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                 </div>
+
                                 <div className="form-group">
                                     <label>Manager</label>
-                                    <select className="select" id="manager" name="manager">
-                                        <option value="">--select--</option>
-                                        {optionArraymanager.map((e) => {
-                                            return (
-                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                    {e.optionvalue}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>
+                                    <Controller
+                                        name="manager"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <select className="form-control form-select" value={value} onChange={onChange} >
+                                                <option value="">--select--</option>
+                                                {optionArraymanager.map((e) => {
+                                                    return (
+                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                            {e.optionvalue}
+                                                        </option>
+                                                    );
+                                                })}
+                                            </select>
+                                        )} />
                                 </div>
 
                                 <div className="form-group">
                                     <label className="form-label">Annual Salary</label>
-                                    <input className="form-control" type="text" name="salary" id="salary" />
+                                    <Controller
+                                        name="salary"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                        )} />
+
                                     <p>Annual salary is the current CTC (cost to company) for this employee, not including variable pay. If you have a monthly CTC, please multiply by 12.</p>
                                 </div>
 
                                 <div className="form-group form-check">
                                     <label>State</label>
-                                    <select className="select" name="location" id="location">
-                                        <option value="">--select--</option>
-                                        {optionArraylocation.map((e) => {
-                                            return (
-                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                    {e.optionvalue}
-                                                </option>
-                                            );
-                                        })}
-                                    </select>
+                                    <Controller
+                                        name="location"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <select className="form-control form-select" value={value} onChange={onChange} >
+                                                <option value="">--select--</option>
+                                                {optionArraylocation.map((e) => {
+                                                    return (
+                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                            {e.optionvalue}
+                                                        </option>
+                                                    );
+                                                })}
+                                            </select>
+                                        )} />
                                 </div>
 
                                 <div className="form-group form-check">
-                                    <input className="form-check-input" type="checkbox" name="resident" id="resident" />
+                                    <Controller
+                                        name="resident"
+                                        control={control}
+                                        render={({ field: { value, onChange } }) => (
+                                            <input className="form-check-input" type="checkbox" value={value} onChange={onChange} />
+                                        )} />
                                     <label className="form-check-label">Resident of India</label>
                                 </div>
 

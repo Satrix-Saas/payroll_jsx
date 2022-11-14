@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
@@ -15,6 +16,25 @@ function Reimbursement() {
     const toggleMobileMenu = () => {
         setMenu(!menu)
     }
+    const [inputValues, setInputValues] = useState({
+        document: "",
+        doc_image: "",
+        description: "",
+       
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+        var arr = [];
+        arr['company_name'] = data.com_name;
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
+
 
     return (
         <>
@@ -40,8 +60,9 @@ function Reimbursement() {
                         </div>
                         {/* /Page Header */}
 
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
+                          
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
@@ -51,16 +72,22 @@ function Reimbursement() {
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Type of reimbursement?</label>
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArraydocuments.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="document"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--Select--</option>
+                                                                        {optionArraydocuments.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )}
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -71,7 +98,13 @@ function Reimbursement() {
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Description?</label>
-                                                            <input type="text" className="form-control" />
+                                                            <Controller
+                                                name="descrption"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -82,7 +115,13 @@ function Reimbursement() {
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Images or documents (maximum 5 MB each)</label>
-                                                            <input type="file" className="form-control"  />
+                                                            <Controller
+                                                name="doc_image"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="file" value={value} onChange={onChange} />
+                                                )} />
+                                                            <input type="file" className="form-control" />
                                                         </div>
                                                     </div>
                                                 </div>
@@ -94,6 +133,7 @@ function Reimbursement() {
                                         </div>
                                     </div>
                                 </div>
+
                             </div>
                         </form>
                     </div>

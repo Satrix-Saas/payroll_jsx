@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Helmet } from "react-helmet";
+import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
@@ -11,6 +12,30 @@ const BasicDetails = () => {
     const toggleMobileMenu = () => {
         setMenu(!menu)
     }
+
+    const [inputValues, setInputValues] = useState({
+        com_name: "",
+        brand_name: "",
+        address: "",
+        pincode: "",
+        pan_num: "",
+        tan_num: "",
+        gstin: "",
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+        var arr = [];
+        arr['company_name'] = data.com_name;
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
+
+
 
     return (
         <>
@@ -47,43 +72,81 @@ const BasicDetails = () => {
                                     <h3 className="account-title">Address & Tax Setup</h3>
                                     <p className="account-subtitle">Enter Basic Details</p>
                                     {/* Account Form */}
-                                    <form id="address_taxsetup">
+                                    <form id="address_taxsetup" onSubmit={handleSubmit(onSubmit)}>
 
                                         <div className="form-group">
                                             <label>Company Name<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="com_name" id="com_name" />
+                                            <Controller
+                                                name="com_name"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
                                             <p>The name of the legal entity.</p>
                                         </div>
 
                                         <div className="form-group">
                                             <label>Brand Name<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="brand_name" id="brand_name" />
+                                            <Controller
+                                                name="brand_name"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+
                                             <p>your company is publicly known by a different brand name, then please enter that here.</p>
                                         </div>
 
                                         <div className="form-group">
                                             <label>Registered address<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="address" id="address" />
+                                            <Controller
+                                                name="address"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+
                                             <p>If you have a GSTIN, provide the address mentioned on your GST certificate.</p>
                                         </div>
 
                                         <div className="form-group">
                                             <label>PIN code<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="pincode" id="pincode" />
+                                            <Controller
+                                                name="pincode"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
                                         </div>
                                         <div className="form-group">
                                             <label>Company PAN<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="pan_num" id="pan_num" />
+                                            <Controller
+                                                name="pan_num"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+
                                         </div>
                                         <div className="form-group">
                                             <label>Company TAN<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="tan_num" id="tan_num" />
+                                            <Controller
+                                                name="tan_num"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
+
                                         </div>
 
                                         <div className="form-group">
                                             <label>Company GSTIN<span className="mandatory">*</span> </label>
-                                            <input className="form-control" type="text" name="gstin" id="gstin" />
-
+                                            <Controller
+                                                name="gstin"
+                                                control={control}
+                                                render={({ field: { value, onChange } }) => (
+                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                )} />
                                         </div>
                                         <div className="form-group text-center">
                                             <button className="btn btn-primary account-btn" type="submit" >Save</button>
