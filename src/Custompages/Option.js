@@ -338,6 +338,33 @@ const options = {
                  'option' :'Trust / NGO',
                  'optionvalue': 'Trust / NGO',
              }
+        ],
+        'Payment':[
+            {
+               ' name' : 'repeat_payment',
+                'option' :'Single Payment',
+                'optionvalue': 'Single Payment',
+            },
+            {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Weekly',
+                 'optionvalue': 'Repeat Weekly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Monthly',
+                 'optionvalue': 'Repeat Monthly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Quarterly',
+                 'optionvalue': 'Repeat Quarterly',
+             },
+             {
+                ' name' : 'repeat_payment',
+                 'option' :'Repeat Biannually',
+                 'optionvalue': 'Repeat Biannually',
+             }
         ]
 }
 
