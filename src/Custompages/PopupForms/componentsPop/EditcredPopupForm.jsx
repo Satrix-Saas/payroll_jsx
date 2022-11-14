@@ -1,4 +1,6 @@
 import React from 'react'
+import { Controller } from 'react-hook-form'
+
 
 function EditcredPopupForm(props) {
     return (
@@ -12,14 +14,25 @@ function EditcredPopupForm(props) {
             <div className="row">
                 <div className="col-sm-6">
                     <div className="form-group">
-                        <label className="col-form-label">{props.username}</label>
-                        <input className="form-control" type={props.typeofusername} />
+                        <label className="col-form-label">{props.username_label}</label>
+                        <Controller
+                            name={props.username}
+                            control={props.control}
+                            render={({ field: { value, onChange } }) => (
+                                <input className="form-control" type={props.typeofusername} value={value} onChange={onChange} />
+                            )} />
                     </div>
                 </div>
                 <div className="col-sm-6">
                     <div className="form-group">
-                        <label className="col-form-label">{props.password}</label>
-                        <input className="form-control" type={props.typeofpassword} />
+                        <label className="col-form-label">{props.password_label}</label>
+                        <Controller
+                            name={props.passwordname}
+                            control={props.control}
+                            render={({ field: { value, onChange } }) => (
+                                <input className="form-control" type={props.typeofpassword} value={value} onChange={onChange} />
+                            )} />
+
                     </div>
                 </div>
             </div>

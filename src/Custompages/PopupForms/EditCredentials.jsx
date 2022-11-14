@@ -1,11 +1,59 @@
-import React from 'react'
+import React, { useState } from 'react'
 import EditcredPopupForm from './componentsPop/EditcredPopupForm'
 import options from '../Option';
 import { dropDownArray } from '../Dropdown/Dropdownutil';
+import { Controller, useForm } from 'react-hook-form';
 
 
 function EditCredentials() {
     const optionArrayState = dropDownArray(options, "State");
+
+    const [inputValues, setInputValues] = useState({
+        traces: "",
+        traces_password:"",
+        pf: "",
+        pf_password:"",
+        esic: "",
+        esic_password:"",
+        state1: "",
+        username1: "",
+        password1: "",
+        add_info1: "",
+
+        state2: "",
+        username2: "",
+        password2: "",
+        add_info2: "",
+
+        state3: "",
+        username3: "",
+        password3: "",
+        add_info3: "",
+
+        state4: "",
+        username4: "",
+        password4: "",
+        add_info4: "",
+
+        state5: "",
+        username5: "",
+        password5: "",
+        add_info5: "",
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+        var arr = [];
+        arr['company_logo'] = data.company_logo;
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
+
+
     return (
         <>
             <div className="modal-dialog modal-dialog-centered modal-lg" role="document">
@@ -17,11 +65,13 @@ function EditCredentials() {
                         </button>
                     </div>
                     <div className="modal-body">
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
 
-                            <EditcredPopupForm label="TRACES" content="Your company's TRACES login is required to file TDS returns, corrections, and to download Form 16/16A data." username="Username" typeofusername="text" typeofpassword="password" password="Password" />
-                            <EditcredPopupForm label="PF" content="Your company's PF login is required to pay provident fund dues and file returns." username="Username" typeofusername="text" typeofpassword="password" password="Password" />
-                            <EditcredPopupForm label="ESIC" content="Your company's ESIC login is required to pay ESIC dues and file returns." username="Username" typeofusername="text" typeofpassword="password" password="Password" />
+                            <EditcredPopupForm username="traces" passwordname ="traces_password" control={control} label="TRACES" content="Your company's TRACES login is required to file TDS returns, corrections, and to download Form 16/16A data." username_label="Username" typeofusername="text" typeofpassword="password" password_label="Password" />
+
+                            <EditcredPopupForm username="pf" passwordname="pf_password" control={control} label="PF" content="Your company's PF login is required to pay provident fund dues and file returns." username_label="Username" typeofusername="text" typeofpassword="password" password_label="Password" />
+
+                            <EditcredPopupForm username="esic" passwordname="esic_password" control={control} label="ESIC" content="Your company's ESIC login is required to pay ESIC dues and file returns." username_label="Username" typeofusername="text" typeofpassword="password" password_label="Password" />
                             <div>
                                 <label>PT</label>
                                 <div className="note">
@@ -42,119 +92,222 @@ function EditCredentials() {
                                                 <tbody>
                                                     <tr>
                                                         <td> <div className="form-group">
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArrayState.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="state1"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArrayState.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="username1" id="username1" />
+                                                            <Controller
+                                                                name="username1"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="password" name="password1" id="password1" />
+                                                            <Controller
+                                                                name="password1"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="password" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="add_info1" id="add_info1" />
+                                                            <Controller
+                                                                name="add_info1"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                     </tr>
                                                     <tr>
                                                         <td> <div className="form-group">
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArrayState.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="state2"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArrayState.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="username2" id="username2" />
+                                                            <Controller
+                                                                name="username2"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="password" name="password2" id="password2" />
+                                                            <Controller
+                                                                name="password2"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="password" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="add_info2" id="add_info2" />
+                                                            <Controller
+                                                                name="add_info2"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                     </tr>
                                                     <tr>
                                                         <td> <div className="form-group">
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArrayState.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="state3"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArrayState.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="username3" id="username3" />
+                                                            <Controller
+                                                                name="username3"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="password" name="password3" id="password3" />
+                                                            <Controller
+                                                                name="password3"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="password" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="add_info3" id="add_info3" />
+                                                            <Controller
+                                                                name="add_info3"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
 
                                                     </tr>
                                                     <tr>
                                                         <td> <div className="form-group">
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArrayState.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="state4"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArrayState.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="username4" id="username4" />
+                                                            <Controller
+                                                                name="username4"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
+
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="password" name="password4" id="password4" />
+                                                            <Controller
+                                                                name="password4"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="password" value={value} onChange={onChange} />
+                                                                )} />
+
                                                         </div></td>
 
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="add_info4" id="add_info4" />
+                                                            <Controller
+                                                                name="add_info4"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
+
                                                         </div></td>
                                                     </tr>
                                                     <tr>
                                                         <td> <div className="form-group">
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArrayState.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="state5"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArrayState.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="username5" id="username5" />
+                                                            <Controller
+                                                                name="username5"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="password" name="password5" id="password5" />
+                                                            <Controller
+                                                                name="password5"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="password" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                         <td><div className="form-group">
-                                                            <input className="form-control" type="text" name="add_info5" id="add_info5" />
+                                                            <Controller
+                                                                name="add_info5"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div></td>
                                                     </tr>
 
@@ -164,10 +317,14 @@ function EditCredentials() {
                                     </div>
                                 </div>
                             </div>
+
+                            <div className="submit-section">
+                                    <button className="btn btn-primary submit-btn">Submit</button>
+                                </div>
                         </form>
                     </div>
                 </div>
-            </div>
+            </div >
 
         </>
     )

@@ -315,6 +315,29 @@ const options = {
                  'option' :'2023-2024',
                  'optionvalue': '2023-2024',
              }
+        ],
+
+        'Org_Type':[
+            {
+               ' name' : 'org_type',
+                'option' :'Private Limited / Public Limited / LLP',
+                'optionvalue': 'Private Limited / Public Limited / LLP',
+            },
+            {
+                ' name' : 'org_type',
+                 'option' :'Sole Proprietorship',
+                 'optionvalue': 'Sole Proprietorship',
+             },
+             {
+                ' name' : 'org_type',
+                 'option' :'Partnership',
+                 'optionvalue': 'Partnership',
+             },
+             {
+                ' name' : 'org_type',
+                 'option' :'Trust / NGO',
+                 'optionvalue': 'Trust / NGO',
+             }
         ]
 }
 

@@ -161,7 +161,7 @@ const EmployeeOnboarding = () => {
                                     <p>Annual salary is the current CTC (cost to company) for this employee, not including variable pay. If you have a monthly CTC, please multiply by 12.</p>
                                 </div>
 
-                                <div className="form-group form-check">
+                                <div className="form-group ">
                                     <label>State</label>
                                     <Controller
                                         name="location"
@@ -191,7 +191,7 @@ const EmployeeOnboarding = () => {
                                 </div>
 
                                 <div className="submit-section">
-                                    <button className="btn btn-primary submit-btn">Submit</button>
+                                    <button className="btn btn-primary submit-btn" data-bs-dismiss="modal" aria-label="Close">Submit</button>
                                 </div>
                             </form>
                         </div>

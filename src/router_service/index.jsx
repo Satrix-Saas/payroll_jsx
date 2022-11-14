@@ -25,11 +25,16 @@ import Payroll from '../MainPage/HR/Payroll';
 import Employees from '../MainPage/Employees';
 import Projects from '../MainPage/Employees/Projects';
 import Employee from '../MainPage/Employees/Employees';
+import Contractor from '../MainPage/Main/Contractor/contractor';
 
 export default [  
    {
       path: 'main',
       component: Dashboard
+   },
+   {
+      path: 'contractor',
+      component: Contractor
    },
    {
       path: 'apps',

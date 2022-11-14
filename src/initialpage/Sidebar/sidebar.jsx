@@ -138,6 +138,17 @@ const toggleLevelThree = (value) => {
               <li className={pathname.includes('reimbursement') ?"active" :""}> 
                 <Link to = "/app/employees/reimbursement"><i className="fa fa-tag" /> <span>Reimbursement</span></Link>
               </li>
+              <li className="submenu">
+                <a href="#" className={isSideMenu == "contractor" ? "subdrop" : ""} onClick={()=> toggleSidebar(isSideMenu =="contractor" ? "": "contractor")}><i className="la la-dashboard" /> <span> Pay Contractor</span> <span className="menu-arrow" /></a>
+                { isSideMenu == "contractor" ? 
+                <ul >
+                <li><Link className={pathname.includes('contractorReimbrusement') ?"active" :""} to="/contractor/contractorReimbrusement">Reimbrusment</Link></li>
+                <li><Link className={pathname.includes('contractorPayment') ?"active" :""} to="/contractor/contractorPayment">Payment</Link></li>
+                 </ul>
+                	:"" 
+                }
+              </li>
+            
               {/* <li className="menu-title"> 
                 <span>HR</span>
               </li> */}
