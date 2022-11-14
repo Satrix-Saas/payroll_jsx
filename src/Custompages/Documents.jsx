@@ -1,13 +1,40 @@
 import React, { useState } from 'react';
 import { Helmet } from 'react-helmet';
+import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
+import { Api } from '../initialpage/Api/Api';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
 
 
+
 function Documents() {
+
+    const [inputValues, setInputValues] = useState({
+        upload_doc: "",
+        description: "",
+        image:"",
+    })
+    const onSubmit = (data) => {
+        console.log("data", data)
+        
+        var arr = [];
+        arr['upload_document'] = data.upload_doc;
+        arr['description'] = data.description;
+        var file_name = data.image;
+        file_name = file_name.replace(/^.*[\\\/]/, '');
+        arr['file_image'] = file_name;
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/document/document");
+        // props.history.push('/app/main/dashboard') 
+    }
+
+    const {
+        handleSubmit,
+        control,
+    } = useForm()
     const optionArraydocuments = dropDownArray(options, "Documents");
 
     const [menu, setMenu] = useState(false)
@@ -26,9 +53,9 @@ function Documents() {
                         <title>Documents - HRMS Admin Template</title>
                         <meta name="description" content="Login page" />
                     </Helmet>
-                    {/* Page Content */}
+                    {/* {/ Page Content /} */}
                     <div className="content container-fluid">
-                        {/* Page Header */}
+                        {/* {/ Page Header /} */}
                         <div className="page-header">
                             <div className="col">
                                 <h3 className="page-title">Documents</h3>
@@ -38,58 +65,79 @@ function Documents() {
                                 </ul>
                             </div>
                         </div>
-                        {/* /Page Header */}
+                        {/* {/ /Page Header /} */}
 
-                        <form>
+                        <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
                                             <div className="leave-item">
-                                                {/* File Upload */}
+                                                {/* {/ File Upload /} */}
                                                 <div className="leave-row">
                                                     <div className="leave-left">
+
                                                         <div className="form-group">
                                                             <label>Upload new documents</label>
-                                                            <select className='form-control form-select'>
-                                                                <option value="">--</option>
-                                                                {optionArraydocuments.map((e) => {
-                                                                    return (
-                                                                        <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
-                                                                            {e.optionvalue}
-                                                                        </option>
-                                                                    );
-                                                                })}
-                                                            </select>
+                                                            <Controller
+                                                                name="upload_doc"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <select className="form-control form-select" type="text" value={value} onChange={onChange} >
+                                                                        <option value="">--</option>
+                                                                        {optionArraydocuments.map((e) => {
+                                                                            return (
+                                                                                <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
+                                                                                    {e.optionvalue}
+                                                                                </option>
+                                                                            );
+                                                                        })}
+                                                                    </select>
+                                                                )}
+                                                            />
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /File Upload */}
-                                                {/* Description */}
+                                                {/* {/ /File Upload /} */}
+                                                {/* {/ Description /} */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Description?</label>
-                                                            <input type="text" className="form-control" />
+                                                            <Controller
+                                                                name="description"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} autoComplete="false" />
+                                                                )}
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /Description */}
-                                                {/* Image upload */}
+                                                {/* {/ /Description /} */}
+                                                {/* {/ Image upload /} */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
                                                             <label>Images or documents (maximum 5 MB each)</label>
-                                                            <input type="file" className="form-control" placeholder='Choose a file' />
+                                                            <Controller
+                                                                name="image"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="file" value={value} onChange={onChange} autoComplete="false" />
+                                                                )}
+                                                            />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* Image upload */}
+                                                {/* {/ Image upload /} */}
                                             </div>
-                                            <div className="submit-section">
-                                                <button className="btn btn-primary submit-btn">Submit</button>
+                                            <div className="form-group text-center">
+                                                <button className="btn btn-primary account-btn" type="submit" >Submit</button>
+
                                             </div>
                                         </div>
                                     </div>
