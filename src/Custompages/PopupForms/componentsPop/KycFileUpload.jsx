@@ -9,8 +9,13 @@ const KycFileUpload = (props) => {
                     <div className="form-group">
                         <h4>{props.fileproof}</h4>
                         <p>{props.description}</p>
+                        <Controller
+                            name={props.name}
+                            control={props.control}
+                            render={({ field: { value, onChange } }) => (
+                                <input className="form-control" type="file" value={value} onChange={onChange} />
+                            )} />
 
-                        <input type="file" className="form-control" id={props.id} name={props.filename} />
                     </div>
                 </div>
             </div>
