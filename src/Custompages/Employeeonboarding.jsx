@@ -35,10 +35,10 @@ const EmployeeOnboarding = () => {
         arr['mng_name'] = data.manager;
         arr['emp_salary'] = data.salary;
         arr['emp_location'] = data.location;
-        data.resident;
+
      
 
-        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/index/index");
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/employee/employee");
         // props.history.push('/app/main/dashboard') 
     }
 
