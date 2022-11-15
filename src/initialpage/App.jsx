@@ -27,6 +27,8 @@ import BasicDetails from '../Custompages/BasicDetails';
 import Companydetails from '../Custompages/Companydetails';
 import ContractorReimbrusement from '../Custompages/ContractorReimbrusement';
 import ContractorPayment from "../Custompages/ContractorPayment"
+import Reimbursement from '../Custompages/Reimbursement';
+
 // import 'Assets/css/font-awesome.min.css';
 
 
@@ -86,6 +88,8 @@ export default class App extends Component {
                     <Route path="/contractorpay" component={ContractorPayment} />
                     <Route path="/basicdetails" component={BasicDetails} />
                     <Route path="/companydetails" component={Companydetails} />
+                    <Route path="/reimbursement" component={Reimbursement} />
+
 
 
                     <Route path="/login" component={LoginPage} />

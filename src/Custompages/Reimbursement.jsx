@@ -6,9 +6,62 @@ import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Api } from '../initialpage/Api/Api';
 
 
-function Reimbursement() {
+const schema = yup
+    .object({
+        document: yup
+            .string()
+            .required('Document is required'),
+        description: yup
+            .string()
+            .required('Descrption is required'),
+        doc_image: yup
+            .string()
+            .required('File is required'),
+    })
+    .required();
+
+const Reimbursement = () => {
+
+
+    const [documenterror, setdocumenterror] = useState("");
+    const [inputValues, setInputValues] = useState({
+        document: "",
+        doc_image: "",
+        description: "",
+
+    })
+
+    const onSubmit = (data) => {
+        console.log("data", data)
+
+
+        clearErrors()
+        var arr = [];
+        arr['document'] = data.document;
+        arr['description'] = data.description;
+        arr['doc_image'] = data.doc_image;
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
+        console.log(arr);
+
+        data = "";
+
+    }
+
+    const {
+        handleSubmit,
+        control,
+        clearErrors,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
+
     const optionArraydocuments = dropDownArray(options, "Documents");
 
     const [menu, setMenu] = useState(false)
@@ -16,25 +69,6 @@ function Reimbursement() {
     const toggleMobileMenu = () => {
         setMenu(!menu)
     }
-    const [inputValues, setInputValues] = useState({
-        document: "",
-        doc_image: "",
-        description: "",
-       
-    })
-    const onSubmit = (data) => {
-        console.log("data", data)
-
-        var arr = [];
-        arr['company_name'] = data.com_name;
-
-    }
-
-    const {
-        handleSubmit,
-        control,
-    } = useForm()
-
 
     return (
         <>
@@ -62,7 +96,7 @@ function Reimbursement() {
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
-                          
+
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
@@ -76,7 +110,7 @@ function Reimbursement() {
                                                                 name="document"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
-                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                    <select className={`form-control form-select  ${errors?.document ? "error-input" : ""}`} value={value} onChange={onChange} >
                                                                         <option value="">--Select--</option>
                                                                         {optionArraydocuments.map((e) => {
                                                                             return (
@@ -88,6 +122,7 @@ function Reimbursement() {
                                                                     </select>
                                                                 )}
                                                             />
+                                                            <small>{errors?.document?.message}</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -99,12 +134,12 @@ function Reimbursement() {
                                                         <div className="form-group">
                                                             <label>Description?</label>
                                                             <Controller
-                                                name="descrption"
-                                                control={control}
-                                                render={({ field: { value, onChange } }) => (
-                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
-                                                )} />
-                                                            
+                                                                name="description"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className={`form-control  ${errors?.description ? "error-input" : ""}`} type="text" value={value} onChange={onChange} />
+                                                                )} />
+                                                            <small>{errors?.description?.message}</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -116,12 +151,13 @@ function Reimbursement() {
                                                         <div className="form-group">
                                                             <label>Images or documents (maximum 5 MB each)</label>
                                                             <Controller
-                                                name="doc_image"
-                                                control={control}
-                                                render={({ field: { value, onChange } }) => (
-                                                    <input className="form-control" type="file" value={value} onChange={onChange} />
-                                                )} />
-                                                            <input type="file" className="form-control" />
+                                                                name="doc_image"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className={`form-control form-select  ${errors?.doc_image ? "error-input" : ""}`} type="file" value={value} onChange={onChange} />
+                                                                )} />
+                                                            <small>{errors?.doc_image?.message}</small>
+                                                         
                                                         </div>
                                                     </div>
                                                 </div>

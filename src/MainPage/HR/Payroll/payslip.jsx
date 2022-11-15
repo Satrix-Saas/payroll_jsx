@@ -4,8 +4,9 @@ import { Helmet } from "react-helmet";
 import { Link } from 'react-router-dom';
 import {Applogo} from "../../../Entryfile/imagepath"
 
+
 const Payslip = () => {
-      return (         
+      return (          
       <div className="page-wrapper">
         <Helmet>
             <title>Payslip - HRMS Admin Template</title>
@@ -89,7 +90,7 @@ const Payslip = () => {
                           </tr>
                         </tbody>
                       </table>
-                    </div>
+                    </div> 
                   </div>
                   <div className="col-sm-6">
                     <div>
