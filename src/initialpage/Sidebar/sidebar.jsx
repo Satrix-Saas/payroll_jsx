@@ -41,7 +41,7 @@ const toggleLevelThree = (value) => {
                     universal={false}
                     hideTracksWhenNotNeeded={true}
                     >
-        <div className="sidebar-inner slimscroll">
+        <div className="sidebar-inner slimscroll"> 
           <div id="sidebar-menu" className="sidebar-menu">
             <ul>
               <li className="menu-title"> 
