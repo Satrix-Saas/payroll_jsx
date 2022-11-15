@@ -4,7 +4,8 @@ import { Controller, useForm } from 'react-hook-form';
 import { Link } from 'react-router-dom';
 import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
-import { Applogo } from '../Entryfile/imagepath.jsx'
+import { Applogo } from '../Entryfile/imagepath.jsx';
+import { Api } from '../initialpage/Api/Api';
 
 const BasicDetails = () => {
     const [menu, setMenu] = useState(false)
@@ -26,7 +27,15 @@ const BasicDetails = () => {
         console.log("data", data)
 
         var arr = [];
-        arr['company_name'] = data.com_name;
+        arr['cmp_name'] = data.com_name;
+        arr['cmp_brand_name'] = data.brand_name;
+        arr['cmp_address'] = data.address;
+        arr['pincode'] = data.pincode;
+        arr['pan_num'] = data.pan_num;
+        arr['tan_num'] = data.tan_num;        ;
+        arr['gstin'] = data.gstin;
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/company/index/index");
 
     }
 
