@@ -26,6 +26,7 @@ import Employees from '../MainPage/Employees';
 import Projects from '../MainPage/Employees/Projects';
 import Employee from '../MainPage/Employees/Employees';
 import Contractor from '../MainPage/Main/Contractor/contractor';
+import EmployeeRoute from '../MainPage/Main/Employee/employee';
 
 export default [  
    {
@@ -39,6 +40,10 @@ export default [
    {
       path: 'apps',
       component: Apps
+   },
+   {
+      path: 'employee_payroll',
+      component: EmployeeRoute
    },
    {
       path: 'employee',
