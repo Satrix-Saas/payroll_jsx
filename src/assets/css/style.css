@@ -574,16 +574,16 @@ table.dataTable thead > tr > td.sorting {
 	border: 1px solid #482fe9;
 }
 .btn-primary {
-	background-color: #ff9b44;
-	border: 1px solid #ff9b44;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary.active,
 .btn-primary:active,
 .open > .dropdown-toggle.btn-primary {
-	background-color: #ff851a;
-	border: 1px solid #ff851a;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary.active.focus,
 .btn-primary.active:focus,
@@ -594,14 +594,14 @@ table.dataTable thead > tr > td.sorting {
 .open > .dropdown-toggle.btn-primary.focus,
 .open > .dropdown-toggle.btn-primary:focus,
 .open > .dropdown-toggle.btn-primary:hover {
-	background-color: #ff851a;
-	border: 1px solid #ff851a;
+	background-color: #c2e2ff;
+	border: 1px solid #c2e2ff;
 }
 .btn-primary.active:not(:disabled):not(.disabled),
 .btn-primary:active:not(:disabled):not(.disabled),
 .show > .btn-primary.dropdown-toggle {
-	background-color: #ff851a;
-	border-color: #ff851a;
+	background-color: #c2e2ff;
+	border-color: #c2e2ff;
 	color: #fff;
 }
 .btn-primary.active:focus:not(:disabled):not(.disabled), 
@@ -610,8 +610,8 @@ table.dataTable thead > tr > td.sorting {
 	box-shadow: unset;
 }
 .btn-primary.disabled, .btn-primary:disabled {
-    background-color: #ff9b44;
-    border-color: #ff9b44;
+    background-color: #c2e2ff;
+    border-color: #c2e2ff;
     color: #fff;
 }
 .btn-success {
@@ -1667,6 +1667,7 @@ table.dataTable thead > tr > td.sorting {
 	font-size: 14px;
 	padding: 9px 10px 9px 50px;
 	position: relative;
+	margin-left: 10px;
 }
 .sidebar-menu ul ul ul a {
 	padding-left: 70px;
@@ -1809,8 +1810,7 @@ table.dataTable thead > tr > td.sorting {
 	color: #333;
 }
 .card {
-	border: 1px solid #ededed;
-	box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.2);
+	border: 1px solid gray;
 	margin-bottom: 30px;
 }
 .ant-pagination-item-active {
@@ -3451,13 +3451,13 @@ span#close-task-panel {
 	text-align: center;
 }
 .fc .fc-button-group > .fc-button:focus, .fc .fc-button-group > .fc-button:active, .fc .fc-button-group > .fc-button.fc-button-active {
-    background-color: #ff9b44 !important;
-	color: white !important;
+    background-color: #cfe2ff !important;
+	color: #1f1f1f !important;
     text-transform: capitalize;
 }
 .fc .fc-button-primary:disabled {
-    color: #fff !important;
-	background-color: #ff9b44 !important;
+    color: #1f1f1f !important;
+	background-color: #cfe2ff !important;
     text-transform: capitalize !important;
 }
 .external-event {
@@ -3860,12 +3860,12 @@ span#close-task-panel {
     position: relative;
 }
 .roles-menu > ul > li.active a {
-	border-color: #ff9b44;
-	color: #ff9b44;
+	border-color: #dee2e6;
+	color: #dee2e6;
 }
 .roles-menu > ul > li a:hover {
-    background-color: #eee;
-	border-color: #ff9b44;
+    background-color: #dee2e6;
+	border-color: #dee2e6;
 }
 .role-action {
 	float: right;

@@ -6,26 +6,56 @@ import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Api } from '../initialpage/Api/Api';
 
 
-function Payslip() {
-    
+
+
+const schema = yup
+  .object({
+    financial_year: yup
+    .string()
+    .required('Financial Year is required')
+  })
+  .required();
+
+const Payslip = () => {
+
+    const [financialyearerror, setfinancialyearerror] = useState("");
     const [inputValues, setInputValues] = useState({
         financial_year: "",
        
-    })
-    const onSubmit = (data) => {
-        console.log("data", data)
-        
-        var arr = [];
-        arr['financial_year'] = data.financial_year;
-      
-    }
+    });
 
     const {
         handleSubmit,
         control,
-    } = useForm()
+        clearErrors,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+        }
+    );
+
+    const onSubmit = (data) => {
+        console.log("data", data)
+        
+
+        clearErrors()
+        var arr = [];
+        arr['financial_year'] = data.financial_year;
+
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
+        console.log(arr);
+    
+        //  this.props.history.push('/app/main/dashboard')
+    }
+   
+ 
+
 
     const optionArrayfinancial = dropDownArray(options, "Financial_year");
 
@@ -35,12 +65,14 @@ function Payslip() {
         setMenu(!menu)
     }
 
+
     return (
         <>
             <div className={`main-wrapper ${menu ? 'slide-nav' : ''}`}>
                 <Header onMenuClick={(value) => toggleMobileMenu()} />
                 <Sidebar />
                 <div className="page-wrapper">
+              
                     <Helmet>
                         <title>Documents - HRMS Admin Template</title>
                         <meta name="description" content="Login page" />
@@ -74,7 +106,7 @@ function Payslip() {
                                                                 name="financial_year"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
-                                                                    <select className="form-control form-select" type="text" value={value} onChange={onChange} >
+                                                                    <select className={`form-control form-select  ${errors?.financial_year ? "error-input" : ""}`} type="text" value={value} onChange={onChange} >
                                                                         <option value="">--Select--</option>
                                                                         {optionArrayfinancial.map((e) => {
                                                                             return (
@@ -86,6 +118,8 @@ function Payslip() {
                                                                     </select>
                                                                 )}
                                                             />
+                                                             <small>{errors?.financial_year?.message}</small>
+
                                                         </div>
                                                     </div>
 
@@ -96,7 +130,7 @@ function Payslip() {
 
                                             </div>
                                             <div className="submit-section">
-                                                <Link to="/app/main/dashboard"><button className="btn btn-primary submit-btn">Return To Dashboard</button></Link>
+                                               <button className="btn btn-primary " type='submit'>Submit</button>
                                             </div>
                                         </div>
                                     </div>

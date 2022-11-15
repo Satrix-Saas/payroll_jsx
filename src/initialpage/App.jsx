@@ -27,9 +27,11 @@ import Admindashboard from '../MainPage/Main/Dashboard/admindashboard';
 
 import BasicDetails from '../Custompages/BasicDetails';
 import Companydetails from '../Custompages/Companydetails';
+
 import RunPayroll from '../Custompages/Employee/RunPayroll';
 import ContractorReimbrusement from '../Custompages/Contractor/ContractorReimbrusement';
 import ContractorPayment from '../Custompages/Contractor/ContractorPayment';
+
 // import 'Assets/css/font-awesome.min.css';
 
 
@@ -92,6 +94,8 @@ export default class App extends Component {
 
                     <Route path="/basicdetails" component={BasicDetails} />
                     <Route path="/companydetails" component={Companydetails} />
+                    <Route path="/reimbursement" component={Reimbursement} />
+
 
 
                     <Route path="/login" component={LoginPage} />

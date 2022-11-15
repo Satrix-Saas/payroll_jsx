@@ -6,6 +6,26 @@ import Header from '../initialpage/Sidebar/header';
 import Sidebar from '../initialpage/Sidebar/sidebar';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
+import * as yup from 'yup';
+import { yupResolver } from '@hookform/resolvers/yup'
+import { Api } from '../initialpage/Api/Api';
+
+
+const schema = yup
+    .object({
+        document: yup
+            .string()
+            .required('Document is required'),
+        description: yup
+            .string()
+            .required('Descrption is required'),
+        doc_image: yup
+            .string()
+            .required('File is required'),
+    })
+    .required();
+
+const Reimbursement = () => {
 
 
 function Reimbursement() {
@@ -13,31 +33,48 @@ function Reimbursement() {
 
     const [menu, setMenu] = useState(false)
 
-    const toggleMobileMenu = () => {
-        setMenu(!menu)
-    }
+    const [documenterror, setdocumenterror] = useState("");
     const [inputValues, setInputValues] = useState({
         reimbrusement_type: "",
         expense_date: "",
         details: "",
         amount: "",
         supporting_image: "",
-     
-        
     })
+
     const onSubmit = (data) => {
         console.log("data", data)
 
+
+        clearErrors()
         var arr = [];
-        arr['company_name'] = data.com_name;
+        arr['document'] = data.document;
+        arr['description'] = data.description;
+        arr['doc_image'] = data.doc_image;
+
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/register/index/index");
+        console.log(arr);
+        
+        data = "";
 
     }
 
     const {
         handleSubmit,
         control,
-    } = useForm()
+        clearErrors,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
 
+    const optionArraydocuments = dropDownArray(options, "Documents");
+
+    const [menu, setMenu] = useState(false)
+
+    const toggleMobileMenu = () => {
+        setMenu(!menu)
+    }
 
     return (
         <>
@@ -79,7 +116,7 @@ function Reimbursement() {
                                                                 name="reimbrusement_type"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
-                                                                    <select className="form-control form-select" value={value} onChange={onChange} >
+                                                                    <select className={`form-control form-select  ${errors?.document ? "error-input" : ""}`} value={value} onChange={onChange} >
                                                                         <option value="">--Select--</option>
                                                                         {optionArrayreimbrusement_type.map((e) => {
                                                                             return (
@@ -91,6 +128,7 @@ function Reimbursement() {
                                                                     </select>
                                                                 )}
                                                             />
+                                                            <small>{errors?.document?.message}</small>
                                                         </div>
                                                     </div>
                                                 </div>
@@ -100,11 +138,13 @@ function Reimbursement() {
                                                         <div className="form-group">
                                                             <label>Expense  Date <span className="text-danger">*</span></label>
                                                             <Controller
+
                                                                 name="expense_date"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
                                                                     <input className="form-control floating" type="date" value={value} onChange={onChange} autoComplete="false" />
                                                                 )} />
+
 
                                                         </div>
                                                     </div>
@@ -116,6 +156,7 @@ function Reimbursement() {
                                                         <div className="form-group">
                                                             <label>Any detail?</label>
                                                             <Controller
+
                                                                 name="details"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
@@ -149,6 +190,7 @@ function Reimbursement() {
                                                                 render={({ field: { value, onChange } }) => (
                                                                     <input className="form-control" type="file" value={value} onChange={onChange} />
                                                                 )} />
+
                                                         </div>
                                                     </div>
                                                 </div>

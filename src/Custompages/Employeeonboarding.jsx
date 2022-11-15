@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { dropDownArray } from './Dropdown/Dropdownutil';
 import options from './Option';
+import { Api } from '../initialpage/Api/Api';
 
 
 const EmployeeOnboarding = () => {
@@ -17,6 +18,7 @@ const EmployeeOnboarding = () => {
         title: "",
         department: "",
         manager: "",
+        salary:"",
         location: "",
         resident: "",
     })
@@ -24,8 +26,20 @@ const EmployeeOnboarding = () => {
         console.log("data", data)
 
         var arr = [];
-        arr['document_name'] = data.emp_cont;
+        arr['emp_type'] = data.emp_cont;
+        arr['emp_name'] = data.fullname;
+        arr['emp_email'] = data.email;
+        arr['emp_hire_date'] = data.hiredate;
+        arr['emp_post'] = data.title;
+        arr['emp_dept'] = data.department;
+        arr['mng_name'] = data.manager;
+        arr['emp_salary'] = data.salary;
+        arr['emp_location'] = data.location;
+        data.resident;
+     
 
+        Api(arr, "http://192.168.0.100:8074/Satrix_Saas2/pub/employee/index/index");
+        // props.history.push('/app/main/dashboard') 
     }
 
     const {

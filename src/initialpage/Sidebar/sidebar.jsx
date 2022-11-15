@@ -42,6 +42,7 @@ const Sidebar = (props) => {
         hideTracksWhenNotNeeded={true}
       >
         <div className="sidebar-inner slimscroll">
+
           <div id="sidebar-menu" className="sidebar-menu">
             <ul>
               <li className="menu-title">

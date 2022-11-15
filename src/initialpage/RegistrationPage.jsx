@@ -110,7 +110,7 @@ const Registrationpage = (props) => {
 
     console.log(arr);
 
-  }
+  } 
 
   const onEyeClick = () => {
     seteye(!eye)
@@ -245,7 +245,7 @@ const Registrationpage = (props) => {
                   </div>
 
                   <div className="form-group text-center">
-                    <button className="btn btn-primary account-btn" type="submit" >Register</button>
+                    <button className="btn btn-primary account-btn" id="formhitbtn" type="submit" >Register</button>
 
                   </div>
                 </form>
