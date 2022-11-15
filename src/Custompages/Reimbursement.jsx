@@ -9,7 +9,7 @@ import options from './Option';
 
 
 function Reimbursement() {
-    const optionArraydocuments = dropDownArray(options, "Documents");
+    const optionArrayreimbrusement_type = dropDownArray(options, "reimbrusement_type");
 
     const [menu, setMenu] = useState(false)
 
@@ -17,10 +17,13 @@ function Reimbursement() {
         setMenu(!menu)
     }
     const [inputValues, setInputValues] = useState({
-        document: "",
-        doc_image: "",
-        description: "",
-       
+        reimbrusement_type: "",
+        expense_date: "",
+        details: "",
+        amount: "",
+        supporting_image: "",
+     
+        
     })
     const onSubmit = (data) => {
         console.log("data", data)
@@ -51,10 +54,10 @@ function Reimbursement() {
                         {/* Page Header */}
                         <div className="page-header">
                             <div className="col">
-                                <h3 className="page-title">Documents</h3>
+                                <h3 className="page-title">Reimbrusement</h3>
                                 <ul className="breadcrumb">
                                     <li className="breadcrumb-item"><Link to="/app/main/dashboard">Dashboard</Link></li>
-                                    <li className="breadcrumb-item active">Documents</li>
+                                    <li className="breadcrumb-item active">Reimbrusement</li>
                                 </ul>
                             </div>
                         </div>
@@ -62,7 +65,7 @@ function Reimbursement() {
 
                         <form onSubmit={handleSubmit(onSubmit)}>
                             <div className="row">
-                          
+
                                 <div className="col-md-8">
                                     <div className="card leave-box" id="comp_logo">
                                         <div className="card-body">
@@ -71,14 +74,14 @@ function Reimbursement() {
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
-                                                            <label>Type of reimbursement?</label>
+                                                            <label>Type of reimbursement?<span className="text-danger">*</span></label>
                                                             <Controller
-                                                                name="document"
+                                                                name="reimbrusement_type"
                                                                 control={control}
                                                                 render={({ field: { value, onChange } }) => (
                                                                     <select className="form-control form-select" value={value} onChange={onChange} >
                                                                         <option value="">--Select--</option>
-                                                                        {optionArraydocuments.map((e) => {
+                                                                        {optionArrayreimbrusement_type.map((e) => {
                                                                             return (
                                                                                 <option key={e.option} name={e.name} option={e.option} value={e.optionvalue}>
                                                                                     {e.optionvalue}
@@ -91,41 +94,64 @@ function Reimbursement() {
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /Type */}
-                                                {/* Description */}
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
-                                                            <label>Description?</label>
+                                                            <label>Expense  Date <span className="text-danger">*</span></label>
                                                             <Controller
-                                                name="descrption"
-                                                control={control}
-                                                render={({ field: { value, onChange } }) => (
-                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
-                                                )} />
-                                                            
+                                                                name="expense_date"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control floating" type="date" value={value} onChange={onChange} autoComplete="false" />
+                                                                )} />
+
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* /Description */}
-                                                {/* Image upload */}
+
 
                                                 <div className="leave-row">
                                                     <div className="leave-left">
                                                         <div className="form-group">
-                                                            <label>Images or documents (maximum 5 MB each)</label>
+                                                            <label>Any detail?</label>
                                                             <Controller
-                                                name="doc_image"
-                                                control={control}
-                                                render={({ field: { value, onChange } }) => (
-                                                    <input className="form-control" type="file" value={value} onChange={onChange} />
-                                                )} />
-                                                            <input type="file" className="form-control" />
+                                                                name="details"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
                                                         </div>
                                                     </div>
                                                 </div>
-                                                {/* Image upload */}
+
+                                                <div className="leave-row">
+                                                    <div className="leave-left">
+                                                        <div className="form-group">
+                                                            <label>Amount <span className="text-danger">*</span> </label>
+                                                            <Controller
+                                                                name="amount"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="text" value={value} onChange={onChange} />
+                                                                )} />
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                                <div className="leave-row">
+                                                    <div className="leave-left">
+                                                        <div className="form-group">
+                                                            <label>Supporting images or documents (maximum 5 MB each) <span className="text-danger">*</span> </label>
+                                                            <Controller
+                                                                name="supporting_image"
+                                                                control={control}
+                                                                render={({ field: { value, onChange } }) => (
+                                                                    <input className="form-control" type="file" value={value} onChange={onChange} />
+                                                                )} />
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
                                             <div className="submit-section">
                                                 <button className="btn btn-primary submit-btn">Submit</button>

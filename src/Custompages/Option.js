@@ -217,155 +217,167 @@ const options = {
             'optionvalue': 'Marketing'
         },],
 
-        'Documents': [
-            {
-                'name': 'documents',
-                'option': 'prof_doc',
-                'optionvalue': 'Professional Documents'
-            },
-            {
-                'name': 'documents',
-                'option': 'degree',
-                'optionvalue': 'Degree'
-            },
-            {
-                'name': 'documents',
-                'option': 'aadhar',
-                'optionvalue': 'Aadhar'
-            },
-            {
-                'name': 'documents',
-                'option': 'tds',
-                'optionvalue': 'Tax Deduction Supporting System'
-            },
-            {
-                'name': 'documents',
-                'option': 'emp_con',
-                'optionvalue': 'Employment Contract'
-            },
-            {
-                'name': 'documents',
-                'option': 'bank_details',
-                'optionvalue': 'Bank Account Details'
-            },
-            {
-                'name': 'documents',
-                'option': 'Other',
-                'optionvalue': 'Other'
-            },],
+    'Documents': [
+        {
+            'name': 'documents',
+            'option': 'prof_doc',
+            'optionvalue': 'Professional Documents'
+        },
+        {
+            'name': 'documents',
+            'option': 'degree',
+            'optionvalue': 'Degree'
+        },
+        {
+            'name': 'documents',
+            'option': 'aadhar',
+            'optionvalue': 'Aadhar'
+        },
+        {
+            'name': 'documents',
+            'option': 'tds',
+            'optionvalue': 'Tax Deduction Supporting System'
+        },
+        {
+            'name': 'documents',
+            'option': 'emp_con',
+            'optionvalue': 'Employment Contract'
+        },
+        {
+            'name': 'documents',
+            'option': 'bank_details',
+            'optionvalue': 'Bank Account Details'
+        },
+        {
+            'name': 'documents',
+            'option': 'Other',
+            'optionvalue': 'Other'
+        },],
 
-        'pay_slip' : [
-            {
-                'name' : 'payslip',
-                'option' :'2023-2024',
-                'optionvalue': '2023-2024',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2022-2023',
-                'optionvalue': '2022-2023',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2021-2022',
-                'optionvalue': '2021-2022',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2020-2021',
-                'optionvalue': '2020-2021',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2019-2020',
-                'optionvalue': '2019-2020',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2018-2019',
-                'optionvalue': '2018-2019',
-            },
-            {
-                'name' : 'payslip',
-                'option' :'2017-2018',
-                'optionvalue': '2017-2018',
-            },
+    'pay_slip': [
+        {
+            'name': 'payslip',
+            'option': '2023-2024',
+            'optionvalue': '2023-2024',
+        },
+        {
+            'name': 'payslip',
+            'option': '2022-2023',
+            'optionvalue': '2022-2023',
+        },
+        {
+            'name': 'payslip',
+            'option': '2021-2022',
+            'optionvalue': '2021-2022',
+        },
+        {
+            'name': 'payslip',
+            'option': '2020-2021',
+            'optionvalue': '2020-2021',
+        },
+        {
+            'name': 'payslip',
+            'option': '2019-2020',
+            'optionvalue': '2019-2020',
+        },
+        {
+            'name': 'payslip',
+            'option': '2018-2019',
+            'optionvalue': '2018-2019',
+        },
+        {
+            'name': 'payslip',
+            'option': '2017-2018',
+            'optionvalue': '2017-2018',
+        },
 
-        ],
-        'One_time_payment':[
-            {
-               ' name' : 'onetimepayment',
-                'option' :'Deduct TDS from this payment itself',
-                'optionvalue': 'Deduct TDS from this payment itself',
-            },
-            {
-                ' name' : 'onetimepayment',
-                 'option' :'Credit the entire amount, and deduct TDS from future payroll',
-                 'optionvalue': 'Credit the entire amount, and deduct TDS from future payroll',
-             }
-        ],
-        'Financial_year':[
-            {
-               ' name' : 'fin_year',
-                'option' :'2022-2023',
-                'optionvalue': '2022-2023',
-            },
-            {
-                ' name' : 'fin_year',
-                 'option' :'2023-2024',
-                 'optionvalue': '2023-2024',
-             }
-        ],
+    ],
+    'One_time_payment': [
+        {
+            ' name': 'onetimepayment',
+            'option': 'Deduct TDS from this payment itself',
+            'optionvalue': 'Deduct TDS from this payment itself',
+        },
+        {
+            ' name': 'onetimepayment',
+            'option': 'Credit the entire amount, and deduct TDS from future payroll',
+            'optionvalue': 'Credit the entire amount, and deduct TDS from future payroll',
+        }
+    ],
+    'Financial_year': [
+        {
+            ' name': 'fin_year',
+            'option': '2022-2023',
+            'optionvalue': '2022-2023',
+        },
+        {
+            ' name': 'fin_year',
+            'option': '2023-2024',
+            'optionvalue': '2023-2024',
+        }
+    ],
 
-        'Org_Type':[
-            {
-               ' name' : 'org_type',
-                'option' :'Private Limited / Public Limited / LLP',
-                'optionvalue': 'Private Limited / Public Limited / LLP',
-            },
-            {
-                ' name' : 'org_type',
-                 'option' :'Sole Proprietorship',
-                 'optionvalue': 'Sole Proprietorship',
-             },
-             {
-                ' name' : 'org_type',
-                 'option' :'Partnership',
-                 'optionvalue': 'Partnership',
-             },
-             {
-                ' name' : 'org_type',
-                 'option' :'Trust / NGO',
-                 'optionvalue': 'Trust / NGO',
-             }
-        ],
-        'Payment':[
-            {
-               ' name' : 'repeat_payment',
-                'option' :'Single Payment',
-                'optionvalue': 'Single Payment',
-            },
-            {
-                ' name' : 'repeat_payment',
-                 'option' :'Repeat Weekly',
-                 'optionvalue': 'Repeat Weekly',
-             },
-             {
-                ' name' : 'repeat_payment',
-                 'option' :'Repeat Monthly',
-                 'optionvalue': 'Repeat Monthly',
-             },
-             {
-                ' name' : 'repeat_payment',
-                 'option' :'Repeat Quarterly',
-                 'optionvalue': 'Repeat Quarterly',
-             },
-             {
-                ' name' : 'repeat_payment',
-                 'option' :'Repeat Biannually',
-                 'optionvalue': 'Repeat Biannually',
-             }
-        ]
+    'Org_Type': [
+        {
+            ' name': 'org_type',
+            'option': 'Private Limited / Public Limited / LLP',
+            'optionvalue': 'Private Limited / Public Limited / LLP',
+        },
+        {
+            ' name': 'org_type',
+            'option': 'Sole Proprietorship',
+            'optionvalue': 'Sole Proprietorship',
+        },
+        {
+            ' name': 'org_type',
+            'option': 'Partnership',
+            'optionvalue': 'Partnership',
+        },
+        {
+            ' name': 'org_type',
+            'option': 'Trust / NGO',
+            'optionvalue': 'Trust / NGO',
+        }
+    ],
+    'Payment': [
+        {
+            ' name': 'repeat_payment',
+            'option': 'Single Payment',
+            'optionvalue': 'Single Payment',
+        },
+        {
+            ' name': 'repeat_payment',
+            'option': 'Repeat Weekly',
+            'optionvalue': 'Repeat Weekly',
+        },
+        {
+            ' name': 'repeat_payment',
+            'option': 'Repeat Monthly',
+            'optionvalue': 'Repeat Monthly',
+        },
+        {
+            ' name': 'repeat_payment',
+            'option': 'Repeat Quarterly',
+            'optionvalue': 'Repeat Quarterly',
+        },
+        {
+            ' name': 'repeat_payment',
+            'option': 'Repeat Biannually',
+            'optionvalue': 'Repeat Biannually',
+        }
+    ],
+    'TDS_Recover': [
+        {
+            ' name': 'TDS_Recover',
+            'option': 'Deduct TDS from this payment itself',
+            'optionvalue': 'Deduct TDS from this payment itself',
+        },
+        {
+            ' name': 'TDS_Recover',
+            'option': 'Credit the entire amount, and deduct TDS from future payroll',
+            'optionvalue': 'Credit the entire amount, and deduct TDS from future payroll',
+        }
+    ]
 }
 
 
